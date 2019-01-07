@@ -16,4 +16,9 @@ public class LoginController {
     public String userIndex(){
         return "index";
     }
+
+    @RequestMapping(value = "/test")
+    public String test(){
+        return "test";
+    }
 }

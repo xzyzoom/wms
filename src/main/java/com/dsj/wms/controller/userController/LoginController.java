@@ -1,12 +1,19 @@
 package com.dsj.wms.controller.userController;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 @RequestMapping(value = "/admin")
 public class LoginController {
 
     @RequestMapping(value = "/login")
     public String userLogin(){
-        return "login";
+        return "userLogin";
+    }
+
+    @RequestMapping(value = "/index")
+    public String userIndex(){
+        return "index";
     }
 }

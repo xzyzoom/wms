@@ -39,4 +39,9 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
+
+    @Override
+    public boolean modifyPwd() throws Exception {
+        return false;
+    }
 }

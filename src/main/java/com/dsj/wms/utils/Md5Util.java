@@ -65,10 +65,10 @@ public class Md5Util {
 
         public static void main(String[] args) {
             // 加密+加盐
-            String password1= generate("admin");
+            /*String password1= generate("123456");
             System.out.println("结果：" + password1 + "   长度："+ password1.length());
             // 解码
-            System.out.println(verify("admin", password1));
+            System.out.println(verify("admin", password1));*/
 
 		 	/*String s1 =  generate("abc");
 		 	System.out.println("加密后："+s1);

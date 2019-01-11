@@ -7,6 +7,7 @@ import com.dsj.wms.utils.Md5Util;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -43,5 +44,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean modifyPwd() throws Exception {
         return false;
+    }
+
+    @Override
+    public List<User> selectUserList() throws Exception {
+        return userMapper.getUserList();
     }
 }

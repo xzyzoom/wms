@@ -6,4 +6,7 @@
     <select id="getLoginUser" resultType="User" parameterType="String">
         select * from admin_user where userName = #{userName}
     </select>
+    <select id="getUserList" resultType="User">
+        SELECT id,userName,userDescription,userState,userRole FROM admin_user WHERE userState = 1
+    </select>
 </mapper>

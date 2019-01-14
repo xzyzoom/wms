@@ -12,20 +12,26 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping(value = "/staff")
 public class StaffController {
     @Resource
     private StaffService staffService;
 
     @RequestMapping(value = "/staffList")
-    public List<Staff> selectStaffList(String staCode,String staName,@RequestParam(defaultValue = "1", value = "currentPage") Integer pageNum, @RequestParam(defaultValue = "5", value = "pageSize") Integer pageSize) {
+    public List<Staff> selectStaffList(String staCode, String staName, @RequestParam(defaultValue = "1", value = "currentPage") Integer pageNum, @RequestParam(defaultValue = "5", value = "pageSize") Integer pageSize) {
         List<Staff> staffList = null;
         try {
-            staffList = staffService.getStaffList(staCode,staName,pageNum, pageSize);
+            staffList = staffService.getStaffList(staCode, staName, pageNum, pageSize);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return staffList;
     }
+
+    @RequestMapping(value = "/sta")
+    public String show() {
+        return "staffList";
+    }
+
 }

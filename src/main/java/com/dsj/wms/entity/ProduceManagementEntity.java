@@ -1,7 +1,6 @@
 package com.dsj.wms.entity;
 
 import java.sql.Timestamp;
-import java.util.Objects;
 
 
 public class ProduceManagementEntity {

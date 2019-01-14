@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dsj.wms.dao.assetDao.AssetMapper">
+    <!--资产验收 -->
+    <insert id="addAsset" parameterType="AssetManagementEntity">
+        INSERT INTO asset_management(nameOfMoldTooling,serialNum,cavityNum,dieMaterial,mouldMaterial,buildingUser,applicableEquipment,serviceLife,maintenancePeriod,contactPhone,manufacturers,contact,acceptanceDates)
+        VALUES(#{nameOfMoldTooling},#{serialNum},#{cavityNum},#{dieMaterial},#{mouldMaterial},#{buildingUser},#{applicableEquipment},#{serviceLife},#{maintenancePeriod},#{contactPhone},#{manufacturers},#{contact},#{acceptanceDates});
+    </insert>
+    <!--资产管理（借出、归还、维修、变更、保养、盘点）查询所有在对用的资产更改其状态-->
+    <select id="getAssetManagementList" resultType="AssetManagementEntity">
+        SELECT * FROM asset_management
+    </select>
+    <!--查询资产记录数-->
+    <select id="getAssetCount" resultType="int">
+        SELECT COUNT(1) FROM asset_management
+    </select>
+    <!--通过ID查询资产详细信息-->
+    <select id="getAssetById" resultType="AssetManagementEntity">
+    SELECT * FROM asset_management WHERE id=#{id}
+    </select>
+</mapper>

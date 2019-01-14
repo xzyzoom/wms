@@ -13,7 +13,7 @@ public class ASNController {
     private ASNService asnService;
     @RequestMapping(value = "/getmaterial.html")
     public String getmaterial() {
-        return "material";
+        return "1";
     }
 
 }

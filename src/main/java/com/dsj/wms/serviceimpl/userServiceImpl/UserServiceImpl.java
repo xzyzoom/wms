@@ -50,4 +50,9 @@ public class UserServiceImpl implements UserService {
     public List<User> selectUserList() throws Exception {
         return userMapper.getUserList();
     }
+
+    @Override
+    public User getUserById(Integer id) throws Exception {
+        return userMapper.getUserById(id);
+    }
 }

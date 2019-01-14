@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Centaurus - Bootstrap Admin Template</title>
+    <title>WMS系统-角色列表</title>
 
     <script type="text/javascript">
         //<![CDATA[
@@ -651,7 +651,7 @@ right for Marsellus to throw...
                                     <h1 class="pull-left">角 色</h1>
                                     <div class="pull-right top-page-ui">
                                         <a href="#" class="btn btn-primary pull-right">
-                                            <i class="fa fa-plus-circle fa-lg"></i> 添加用户
+                                            <i class="fa fa-plus-circle fa-lg"></i> 添加角色
                                         </a>
                                     </div>
                                 </div>
@@ -673,36 +673,35 @@ right for Marsellus to throw...
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-
-                                                <tr th:each="">
+                                                <tr th:each="role:${roleList}">
                                                     <td>
                                                         <img src="/img/samples/user-profile-1.png" alt=""/>
-                                                        <a href="#" class="user-link"><span th:text=""></span></a>
-                                                        <span class="user-subhead" th:text="">Admin</span>
+                                                        <a href="#" class="user-link"><span th:text="${role.roleName}">Name</span></a>
+                                                        <span class="user-subhead">Test</span>
                                                     </td>
                                                     <td>
-                                                        <span th:text=""></span>
+                                                        <span th:text="${role.remarks}">描述</span>
                                                     </td>
                                                     <td class="text-center">
                                                         <span class="label label-success">Inactive</span>
                                                     </td>
                                                     <td>
-                                                        <span class="__cf_email__">系统管理员</span>
+                                                        <span class="__cf_email__" th:text="${#dates.format(role.createTime, 'yyyy/MM/dd')}">日期</span>
                                                     </td>
                                                     <td style="width: 20%;">
-                                                        <a th:href="" class="table-link" th:title="查看">
+                                                        <a class="table-link" th:title="查看">
 <span class="fa-stack" th:title="查看">
 <i class="fa fa-square fa-stack-2x"></i>
 <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
 </span>
                                                         </a>
-                                                        <a th:href="" class="table-link" th:title="编辑">
+                                                        <a class="table-link" th:title="编辑">
 <span class="fa-stack" th:title="编辑">
 <i class="fa fa-square fa-stack-2x"></i>
 <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 </span>
                                                         </a>
-                                                        <a  th:href="" class="table-link danger" th:title="删除">
+                                                        <a class="table-link danger" th:title="删除">
 <span class="fa-stack" th:title="删除">
 <i class="fa fa-square fa-stack-2x"></i>
 <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -710,7 +709,6 @@ right for Marsellus to throw...
                                                         </a>
                                                     </td>
                                                 </tr>
-
                                                 </tbody>
                                             </table>
                                         </div>

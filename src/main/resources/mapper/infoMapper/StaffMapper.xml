@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dsj.wms.dao.infoDao.StaffMapper">
+    <sql id="Basc_Column_List">
+        id,staCode,staName,staId,staSex,staAge,staPhone,staEmail,staAddress,staPhoto,depId,positionId
+    </sql>
+
+    <select id="getStaffList" resultType="Staff">
+        select
+        <include refid="Basc_Column_List"/>
+        from staff
+    </select>
+</mapper>

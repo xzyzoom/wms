@@ -81,5 +81,20 @@ public class UserController {
         return "userList";
     }
 
+    @RequestMapping(value = "/getUserById")
+    public User getUserById(@RequestParam Integer id, HttpServletRequest request) {
+        User user = null;
+        try {
+            user = userService.getUserById(id);
+            if (user != null) {
+                return user;
+            } else {
+                request.setAttribute("error", "无法查看该用户");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

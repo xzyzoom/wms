@@ -6,7 +6,12 @@
     <select id="getLoginUser" resultType="User" parameterType="String">
         select * from admin_user where userName = #{userName}
     </select>
+
     <select id="getUserList" resultType="User">
         SELECT id,userName,userDescription,userState,userRole FROM admin_user WHERE userState = 1
+    </select>
+
+    <select id="getUserById" resultType="User" parameterType="Integer">
+        select * from admin_user where id = #{id}
     </select>
 </mapper>

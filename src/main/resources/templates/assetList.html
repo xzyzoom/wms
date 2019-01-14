@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>WMS系统-首页</title>
-
+    <title>*资产管理*</title>
+    <script src="/js/jquery.js"></script>
     <script type="text/javascript">
+       /* $(function () {
+           $(".btn").click(function () {
+               $(".assetInfo").show();
+           });
+        });*/
+
         //<![CDATA[
+
         try {
             if (!window.CloudFlare) {
                 var CloudFlare = [{
@@ -21,7 +27,7 @@
                     oracle: 0,
                     paths: {cloudflare: "/cdn-cgi/nexp/dok2v=1613a3a185/"},
                     atok: "1fca8a26fb9678bbb4b5c54c34e227b9",
-                    petok: "4ca96b72a62631073dd6873922c67f1bf6e51b65-1420553914-1800",
+                    petok: "9066de93de6eca703af4abd709b2c42a8596b1eb-1420554017-1800",
                     zone: "adbee.technology",
                     rocket: "0",
                     apps: {"ga_key": {"ua": "UA-49262924-2", "ga_bs": "2"}}
@@ -45,12 +51,20 @@
 
     <link rel="stylesheet" type="text/css" href="/css/compiled/theme_styles.css"/>
 
-    <link rel="stylesheet" href="/css/libs/fullcalendar.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/libs/fullcalendar.print.css" type="text/css" media="print"/>
-    <link rel="stylesheet" href="/css/compiled/calendar.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="/css/libs/morris.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/libs/daterangepicker.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/libs/jquery-jvectormap-1.2.2.css" type="text/css"/>
+    <style>.show-grid {
+        padding-left: 10px;
+        padding-left: 10px;
+    }
+
+    .show-grid [class^="col-"] {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #eee;
+        border: 1px solid #ddd;
+        background-color: rgba(52, 152, 219, 0.15);
+        border: 1px solid rgba(52, 152, 219, 0.2);
+        margin-bottom: 5px;
+    }</style>
 
     <link type="image/x-icon" href="/img/favicon.png" rel="shortcut icon"/>
 
@@ -75,11 +89,11 @@
                 "twttr" in b && "events" in twttr && "bind" in twttr.events && twttr.events.bind("tweet", function (a) {
                     if (a) {
                         var b;
-                        if (a.target && a.target.nodeName == "IFRAME")a:{
+                        if (a.target && a.target.nodeName == "IFRAME") a:{
                             if (a = a.target.src) {
                                 a = a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);
                                 b = 0;
-                                for (var c; c = a[b]; ++b)if (c.indexOf("url") === 0) {
+                                for (var c; c = a[b]; ++b) if (c.indexOf("url") === 0) {
                                     b = unescape(c.split("=")[1]);
                                     break a
                                 }
@@ -92,9 +106,12 @@
             })
         })(window);
         /* ]]> */
+
+
     </script>
 </head>
 <body>
+<!--左侧导航栏-->
 <div id="theme-wrapper">
     <header class="navbar" id="header-navbar">
         <div class="container">
@@ -263,11 +280,11 @@ left for Marsellus to throw...
                                 <li><a href="user-profile.html"><i class="fa fa-user"></i>账户信息</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i>基本设置</a></li>
                                 <li><a href="#"><i class="fa fa-envelope-o"></i>未读消息</a></li>
-                                <li><a href="/user/logout"><i class="fa fa-power-off"></i>退出系统</a></li>
+                                <li><a href="#"><i class="fa fa-power-off"></i>退出系统</a></li>
                             </ul>
                         </li>
                         <li class="hidden-xxs">
-                            <a href="/user/logout" class="btn" title="退出系统">
+                            <a class="btn" title="退出系统">
                                 <i class="fa fa-power-off"></i>
                             </a>
                         </li>
@@ -286,8 +303,7 @@ left for Marsellus to throw...
                             <div class="user-box">
 <span class="name">
 欢迎您!<br/>
-    <!--Admin-->
-    <!--  <span th:text="${user.userName}"></span>-->
+Admin
 </span>
                                 <span class="status">
 <i class="fa fa-circle"></i> Online
@@ -309,7 +325,7 @@ left for Marsellus to throw...
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/user/userList">
+                                            <a href="email-detail.html">
                                                 <i class="fa fa-circle-thin"></i> 用户管理
                                             </a>
                                         </li>
@@ -328,7 +344,7 @@ left for Marsellus to throw...
                                     </a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="ui-elements.html">
+                                            <a href="acceptance.html">
                                                 <i class="fa fa-circle-thin"></i> 单位组织结构
                                             </a>
                                         </li>
@@ -526,7 +542,7 @@ left for Marsellus to throw...
                                     </a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="ui-elements.html">
+                                            <a href="#">
                                                 <i class="fa fa-circle-thin"></i> 生产领料
                                             </a>
                                         </li>
@@ -560,37 +576,37 @@ left for Marsellus to throw...
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/assets/getAssetList">
+                                            <a href="emails.html">
                                                 <i class="fa fa-circle-thin"></i> 资产借出
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="userLogin.html">
                                                 <i class="fa fa-circle-thin"></i> 资产归还
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="login-full.html">
                                                 <i class="fa fa-circle-thin"></i> 资产维修
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="registration.html">
                                                 <i class="fa fa-circle-thin"></i> 资产变更
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="registration-full.html">
                                                 <i class="fa fa-circle-thin"></i> 资产保养
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="forgot-password.html">
                                                 <i class="fa fa-circle-thin"></i> 资产盘点
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="forgot-password-full.html">
                                                 <i class="fa fa-circle-thin"></i> 资产报废
                                             </a>
                                         </li>
@@ -630,6 +646,7 @@ left for Marsellus to throw...
                     </div>
                 </section>
             </div>
+            <!--功能区-->
             <div id="content-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
@@ -637,116 +654,187 @@ left for Marsellus to throw...
                             <div class="col-lg-12">
                                 <ol class="breadcrumb">
                                     <li><a href="/user/index">首页</a></li>
-                                    <li class="active"><span>系统首页</span></li>
+                                    <li class="active"><span>资产管理</span></li>
                                 </ol>
-                                <h1>欢迎使用仓库管理系统!</h1>
+                                <h1 class="pull-left">借出</h1>
+                                <div class="pull-left top-page-ui">
+                                    <a href="/assets/acceptance" class="btn btn-primary pull-left">
+                                        <i class="fa fa-plus-circle fa-lg"></i> 资产验收
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div>右侧内容</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-box no-header clearfix">
+                                <div class="main-box-body clearfix">
+                                    <div class="table-responsive">
+                                        <table class="table user-list table-hover">
+                                            <!--class="table user-list table-hover"-->
+                                            <thead>
+                                            <tr>
+                                                <th><span>模具名称</span></th>
+                                                <th><span>适用设备</span></th>
+                                                <th><span>适用部门</span></th>
+                                                <th><span>模具材料</span></th>
+                                                <th><span>生产材料</span></th>
+                                                <th><span>制造厂商</span></th>
+                                                <th><span>使用寿命</span></th>
+                                                <th><span>操作</span></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="asset:${assetList}" id="viewDiv">
+                                                <td>
+                                                    <span class="user-subhead" th:text="${asset.nameOfMoldTooling}">Admin</span>
+                                                </td>
+                                                <td>
+                                                    <span class="user-subhead" th:text="${asset.applicableEquipment}">Admin</span>
+                                                </td>
+                                                <td>
+                                                    <span class="user-subhead"
+                                                          th:text="${asset.buildingUser}">Admin</span>
+                                                </td>
+                                                <td>
+                                                    <span class="user-subhead"
+                                                          th:text="${asset.dieMaterial}">Admin</span>
+                                                </td>
+                                                <td>
+                                                    <span class="user-subhead"
+                                                          th:text="${asset.mouldMaterial}">Admin</span>
+                                                </td>
+                                                <td>
+                                                    <span class="user-subhead"
+                                                          th:text="${asset.manufacturers}">Admin</span>
+                                                </td>
+                                                <td>
+                                                    <span class="user-subhead"
+                                                          th:text="${asset.serviceLife}">Admin</span>
+                                                </td>
+                                                <td style="width: 20%;">
+                                                        <a th:href="@{/assets/getAssetInfo(id=${asset.id})}"
+                                                        class="table-link btn" th:title="借出">
+                                                        <span class="fa-stack" th:title="借出">
+                                                        <i class="fa fa-square fa-stack-2x"></i>
+                                                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--做分页显示-->
+                                        <!--<input type="hidden" id="totalPageCount" th:value="${totalPageCount}"/>
+                                        <div th:replace="assetpage::html">-->
+                                        <!--<th:param name="totalCount" value="${totalCount}"/>-->
+                                        <!--<th:param name="currentPageNo" value="${currentPageNo}"/>-->
+                                        <!--<th:param name="totalPageCount" value="${totalPageCount}"/>-->
+                                        <!-- </div>-->
+                                        <!---->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <footer id="footer-bar" class="row">
-                    <p id="footer-copyleft" class="col-xs-12">
-                        &copy; 2019 <a href="http://www.Alibaba.com/" target="_blank">北大青鸟</a>.
-                        北京阿博泰克网络科技有限公司.
-                    </p>
-                </footer>
             </div>
         </div>
     </div>
-</div>
-<div id="config-tool" class="closed">
-    <a id="config-tool-cog">
-        <i class="fa fa-cog"></i>
-    </a>
-    <div id="config-tool-options">
-        <h4>页面设置</h4>
-        <ul>
-            <li>
-                <div class="checkbox-nice">
-                    <input type="checkbox" id="config-fixed-header"/>
-                    <label for="config-fixed-header">
-                        固定头部
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox-nice">
-                    <input type="checkbox" id="config-fixed-sidebar"/>
-                    <label for="config-fixed-sidebar">
-                        固定菜单
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox-nice">
-                    <input type="checkbox" id="config-fixed-footer"/>
-                    <label for="config-fixed-footer">
-                        固定底部
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox-nice">
-                    <input type="checkbox" id="config-boxed-layout"/>
-                    <label for="config-boxed-layout">
-                        盒状布局
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="checkbox-nice">
-                    <input type="checkbox" id="config-rtl-layout"/>
-                    <label for="config-rtl-layout">
-                        左侧显示
-                    </label>
-                </div>
-            </li>
-        </ul>
-        <br/>
-        <h4>界面颜色</h4>
-        <ul id="skin-colors" class="clearfix">
-            <li>
-                <a class="skin-changer" data-skin="" data-toggle="tooltip" title="Default"
-                   style="background-color: #34495e;">
-                </a>
-            </li>
-            <li>
-                <a class="skin-changer" data-skin="theme-white" data-toggle="tooltip" title="White/Green"
-                   style="background-color: #2ecc71;">
-                </a>
-            </li>
-            <li>
-                <a class="skin-changer blue-gradient" data-skin="theme-blue-gradient" data-toggle="tooltip"
-                   title="Gradient">
-                </a>
-            </li>
-            <li>
-                <a class="skin-changer" data-skin="theme-turquoise" data-toggle="tooltip" title="Green Sea"
-                   style="background-color: #1abc9c;">
-                </a>
-            </li>
-            <li>
-                <a class="skin-changer" data-skin="theme-amethyst" data-toggle="tooltip" title="Amethyst"
-                   style="background-color: #9b59b6;">
-                </a>
-            </li>
-            <li>
-                <a class="skin-changer" data-skin="theme-blue" data-toggle="tooltip" title="Blue"
-                   style="background-color: #2980b9;">
-                </a>
-            </li>
-            <li>
-                <a class="skin-changer" data-skin="theme-red" data-toggle="tooltip" title="Red"
-                   style="background-color: #e74c3c;">
-                </a>
-            </li>
-            <li>
-                <a class="skin-changer" data-skin="theme-whbl" data-toggle="tooltip" title="White/Blue"
-                   style="background-color: #3498db;">
-                </a>
-            </li>
-        </ul>
+    <!--样式-->
+    <div id="config-tool" class="closed">
+        <a id="config-tool-cog">
+            <i class="fa fa-cog"></i>
+        </a>
+        <div id="config-tool-options">
+            <h4>页面设置</h4>
+            <ul>
+                <li>
+                    <div class="checkbox-nice">
+                        <input type="checkbox" id="config-fixed-header"/>
+                        <label for="config-fixed-header">
+                            固定头部
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox-nice">
+                        <input type="checkbox" id="config-fixed-sidebar"/>
+                        <label for="config-fixed-sidebar">
+                            固定菜单
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox-nice">
+                        <input type="checkbox" id="config-fixed-footer"/>
+                        <label for="config-fixed-footer">
+                            固定底部
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox-nice">
+                        <input type="checkbox" id="config-boxed-layout"/>
+                        <label for="config-boxed-layout">
+                            盒状布局
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox-nice">
+                        <input type="checkbox" id="config-rtl-layout"/>
+                        <label for="config-rtl-layout">
+                            左侧显示
+                        </label>
+                    </div>
+                </li>
+            </ul>
+            <br/>
+            <h4>界面颜色</h4>
+            <ul id="skin-colors" class="clearfix">
+                <li>
+                    <a class="skin-changer" data-skin="" data-toggle="tooltip" title="Default"
+                       style="background-color: #34495e;">
+                    </a>
+                </li>
+                <li>
+                    <a class="skin-changer" data-skin="theme-white" data-toggle="tooltip" title="White/Green"
+                       style="background-color: #2ecc71;">
+                    </a>
+                </li>
+                <li>
+                    <a class="skin-changer blue-gradient" data-skin="theme-blue-gradient" data-toggle="tooltip"
+                       title="Gradient">
+                    </a>
+                </li>
+                <li>
+                    <a class="skin-changer" data-skin="theme-turquoise" data-toggle="tooltip" title="Green Sea"
+                       style="background-color: #1abc9c;">
+                    </a>
+                </li>
+                <li>
+                    <a class="skin-changer" data-skin="theme-amethyst" data-toggle="tooltip" title="Amethyst"
+                       style="background-color: #9b59b6;">
+                    </a>
+                </li>
+                <li>
+                    <a class="skin-changer" data-skin="theme-blue" data-toggle="tooltip" title="Blue"
+                       style="background-color: #2980b9;">
+                    </a>
+                </li>
+                <li>
+                    <a class="skin-changer" data-skin="theme-red" data-toggle="tooltip" title="Red"
+                       style="background-color: #e74c3c;">
+                    </a>
+                </li>
+                <li>
+                    <a class="skin-changer" data-skin="theme-whbl" data-toggle="tooltip" title="White/Blue"
+                       style="background-color: #3498db;">
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 
@@ -756,246 +844,10 @@ left for Marsellus to throw...
 <script src="/js/jquery.nanoscroller.min.js"></script>
 <script src="/js/demo.js"></script>
 
-<script src="/js/jquery-ui.custom.min.js"></script>
-<script src="/js/fullcalendar.min.js"></script>
-<script src="/js/jquery.slimscroll.min.js"></script>
-<script src="/js/raphael-min.js"></script>
-<script src="/js/morris.min.js"></script>
-<script src="/js/moment.min.js"></script>
-<script src="/js/daterangepicker.js"></script>
-<script src="/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/js/jquery-jvectormap-world-merc-en.js"></script>
-<script src="/js/gdp-data.js"></script>
-<script src="/js/flot/jquery.flot.js"></script>
-<script src="/js/flot/jquery.flot.min.js"></script>
-<script src="/js/flot/jquery.flot.pie.min.js"></script>
-<script src="/js/flot/jquery.flot.stack.min.js"></script>
-<script src="/js/flot/jquery.flot.resize.min.js"></script>
-<script src="/js/flot/jquery.flot.time.min.js"></script>
-<script src="/js/flot/jquery.flot.threshold.js"></script>
-<script src="/js/jquery.countTo.js"></script>
-
+<script src="/js/jquery.nestable.js"></script>
 <script src="/js/scripts.js"></script>
 <script src="/js/pace.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-
-        /* initialize the external events
-         -----------------------------------------------------------------*/
-
-        $('#external-events div.external-event').each(function () {
-
-            // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-            // it doesn't need to have a start or end
-            var eventObject = {
-                title: $.trim($(this).text()) // use the element's text as the event title
-            };
-
-            // store the Event Object in the DOM element so we can get to it later
-            $(this).data('eventObject', eventObject);
-
-            // make the event draggable using jQuery UI
-            $(this).draggable({
-                zIndex: 999,
-                revert: true,      // will cause the event to go back to its
-                revertDuration: 0  //  original position after the drag
-            });
-
-        });
-
-
-        /* initialize the calendar
-         -----------------------------------------------------------------*/
-
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-
-        var calendar = $('#calendar').fullCalendar({
-            header: {
-                left: '',
-                center: 'title',
-                left: 'prev,next'
-            },
-            isRTL: $('body').hasClass('rtl'), //rtl support for calendar
-            selectable: true,
-            selectHelper: true,
-            select: function (start, end, allDay) {
-                var title = prompt('Event Title:');
-                if (title) {
-                    calendar.fullCalendar('renderEvent',
-                        {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        },
-                        true // make the event "stick"
-                    );
-                }
-                calendar.fullCalendar('unselect');
-            },
-            editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar !!!
-            drop: function (date, allDay) { // this function is called when something is dropped
-
-                // retrieve the dropped element's stored Event Object
-                var originalEventObject = $(this).data('eventObject');
-
-                // we need to copy it, so that multiple events don't have a reference to the same object
-                var copiedEventObject = $.extend({}, originalEventObject);
-
-                // assign it the date that was reported
-                copiedEventObject.start = date;
-                copiedEventObject.allDay = allDay;
-
-                // copy label class from the event object
-                var labelClass = $(this).data('eventclass');
-
-                if (labelClass) {
-                    copiedEventObject.className = labelClass;
-                }
-
-                // render the event on the calendar
-                // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-                // is the "remove after drop" checkbox checked?
-                if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
-                    $(this).remove();
-                }
-
-            },
-            buttonText: {
-                prev: '<i class="fa fa-chevron-left"></i>',
-                next: '<i class="fa fa-chevron-left"></i>'
-            },
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: new Date(y, m, 1),
-                    className: 'label-success'
-                },
-                {
-                    title: 'Long Event',
-                    start: new Date(y, m, d - 5),
-                    end: new Date(y, m, d - 2)
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d - 3, 16, 0),
-                    allDay: false,
-                    className: 'label-danger'
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d + 4, 16, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
-                    allDay: false,
-                    className: 'label-info'
-                },
-                {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
-                    allDay: false,
-                    className: 'label-success'
-                },
-                {
-                    title: 'Birthday Party',
-                    start: new Date(y, m, d + 1, 19, 0),
-                    end: new Date(y, m, d + 1, 22, 30),
-                    allDay: false,
-                    className: 'label-info'
-                },
-                {
-                    title: 'Click for Google',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
-                    url: 'http://google.com/',
-                    className: 'label-danger'
-                }
-            ]
-        });
-
-        $('.conversation-inner').slimScroll({
-            height: '332px',
-            alwaysVisible: false,
-            railVisible: true,
-            wheelStep: 5,
-            allowPageScroll: false
-        });
-
-        //CHARTS
-        graphLine = Morris.Line({
-            element: 'graph-line',
-            data: [
-                {period: '2014-01-01', iphone: 2666, ipad: null, itouch: 2647},
-                {period: '2014-01-02', iphone: 9778, ipad: 2294, itouch: 2441},
-                {period: '2014-01-03', iphone: 4912, ipad: 1969, itouch: 2501},
-                {period: '2014-01-04', iphone: 3767, ipad: 3597, itouch: 5689},
-                {period: '2014-01-05', iphone: 6810, ipad: 1914, itouch: 2293},
-                {period: '2014-01-06', iphone: 5670, ipad: 4293, itouch: 1881},
-                {period: '2014-01-07', iphone: 4820, ipad: 3795, itouch: 1588},
-                {period: '2014-01-08', iphone: 15073, ipad: 5967, itouch: 5175},
-                {period: '2014-01-09', iphone: 10687, ipad: 4460, itouch: 2028},
-                {period: '2014-01-10', iphone: 8432, ipad: 5713, itouch: 1791}
-            ],
-            lineColors: ['#ffffff'],
-            xkey: 'period',
-            ykeys: ['iphone'],
-            labels: ['iPhone'],
-            pointSize: 3,
-            hideHover: 'auto',
-            gridTextColor: '#ffffff',
-            gridLineColor: 'rgba(255, 255, 255, 0.3)',
-            resize: true
-        });
-
-        //WORLD MAP
-        $('#world-map').vectorMap({
-            map: 'world_merc_en',
-            backgroundColor: '#ffffff',
-            zoomOnScroll: false,
-            regionStyle: {
-                initial: {
-                    fill: '#e1e1e1',
-                    stroke: 'none',
-                    "stroke-width": 0,
-                    "stroke-opacity": 1
-                },
-                hover: {
-                    "fill-opacity": 0.8
-                },
-                selected: {
-                    fill: '#8dc859'
-                },
-                selectedHover: {}
-            },
-            series: {
-                regions: [{
-                    values: gdpData,
-                    scale: ['#6fc4fe', '#2980b9'],
-                    normalizeFunction: 'polynomial'
-                }]
-            },
-            onRegionLabelShow: function (e, el, code) {
-                el.html(el.html() + ' (' + gdpData[code] + ')');
-            }
-        });
-
-        $('.infographic-box .value .timer').countTo({});
-
-    });
-</script>
+<!---->
+<script src="/js/rollpage.js"></script>
 </body>
 </html>

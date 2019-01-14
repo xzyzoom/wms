@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>WMS系统-首页</title>
+    <title>*资产验收*</title>
 
     <script type="text/javascript">
         //<![CDATA[
@@ -21,7 +20,7 @@
                     oracle: 0,
                     paths: {cloudflare: "/cdn-cgi/nexp/dok2v=1613a3a185/"},
                     atok: "1fca8a26fb9678bbb4b5c54c34e227b9",
-                    petok: "4ca96b72a62631073dd6873922c67f1bf6e51b65-1420553914-1800",
+                    petok: "9066de93de6eca703af4abd709b2c42a8596b1eb-1420554017-1800",
                     zone: "adbee.technology",
                     rocket: "0",
                     apps: {"ga_key": {"ua": "UA-49262924-2", "ga_bs": "2"}}
@@ -45,12 +44,20 @@
 
     <link rel="stylesheet" type="text/css" href="/css/compiled/theme_styles.css"/>
 
-    <link rel="stylesheet" href="/css/libs/fullcalendar.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/libs/fullcalendar.print.css" type="text/css" media="print"/>
-    <link rel="stylesheet" href="/css/compiled/calendar.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="/css/libs/morris.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/libs/daterangepicker.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/libs/jquery-jvectormap-1.2.2.css" type="text/css"/>
+    <style>.show-grid {
+        padding-left: 10px;
+        padding-left: 10px;
+    }
+
+    .show-grid [class^="col-"] {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #eee;
+        border: 1px solid #ddd;
+        background-color: rgba(52, 152, 219, 0.15);
+        border: 1px solid rgba(52, 152, 219, 0.2);
+        margin-bottom: 5px;
+    }</style>
 
     <link type="image/x-icon" href="/img/favicon.png" rel="shortcut icon"/>
 
@@ -75,11 +82,11 @@
                 "twttr" in b && "events" in twttr && "bind" in twttr.events && twttr.events.bind("tweet", function (a) {
                     if (a) {
                         var b;
-                        if (a.target && a.target.nodeName == "IFRAME")a:{
+                        if (a.target && a.target.nodeName == "IFRAME") a:{
                             if (a = a.target.src) {
                                 a = a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);
                                 b = 0;
-                                for (var c; c = a[b]; ++b)if (c.indexOf("url") === 0) {
+                                for (var c; c = a[b]; ++b) if (c.indexOf("url") === 0) {
                                     b = unescape(c.split("=")[1]);
                                     break a
                                 }
@@ -95,6 +102,7 @@
     </script>
 </head>
 <body>
+<!--左侧导航栏-->
 <div id="theme-wrapper">
     <header class="navbar" id="header-navbar">
         <div class="container">
@@ -263,11 +271,11 @@ left for Marsellus to throw...
                                 <li><a href="user-profile.html"><i class="fa fa-user"></i>账户信息</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i>基本设置</a></li>
                                 <li><a href="#"><i class="fa fa-envelope-o"></i>未读消息</a></li>
-                                <li><a href="/user/logout"><i class="fa fa-power-off"></i>退出系统</a></li>
+                                <li><a href="#"><i class="fa fa-power-off"></i>退出系统</a></li>
                             </ul>
                         </li>
                         <li class="hidden-xxs">
-                            <a href="/user/logout" class="btn" title="退出系统">
+                            <a class="btn" title="退出系统">
                                 <i class="fa fa-power-off"></i>
                             </a>
                         </li>
@@ -286,8 +294,7 @@ left for Marsellus to throw...
                             <div class="user-box">
 <span class="name">
 欢迎您!<br/>
-    <!--Admin-->
-    <!--  <span th:text="${user.userName}"></span>-->
+Admin
 </span>
                                 <span class="status">
 <i class="fa fa-circle"></i> Online
@@ -309,7 +316,7 @@ left for Marsellus to throw...
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/user/userList">
+                                            <a href="email-detail.html">
                                                 <i class="fa fa-circle-thin"></i> 用户管理
                                             </a>
                                         </li>
@@ -328,7 +335,7 @@ left for Marsellus to throw...
                                     </a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="ui-elements.html">
+                                            <a href="acceptance.html">
                                                 <i class="fa fa-circle-thin"></i> 单位组织结构
                                             </a>
                                         </li>
@@ -526,7 +533,7 @@ left for Marsellus to throw...
                                     </a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="ui-elements.html">
+                                            <a href="#">
                                                 <i class="fa fa-circle-thin"></i> 生产领料
                                             </a>
                                         </li>
@@ -565,32 +572,32 @@ left for Marsellus to throw...
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="userLogin.html">
                                                 <i class="fa fa-circle-thin"></i> 资产归还
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="login-full.html">
                                                 <i class="fa fa-circle-thin"></i> 资产维修
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="registration.html">
                                                 <i class="fa fa-circle-thin"></i> 资产变更
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="registration-full.html">
                                                 <i class="fa fa-circle-thin"></i> 资产保养
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="forgot-password.html">
                                                 <i class="fa fa-circle-thin"></i> 资产盘点
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="forgot-password-full.html">
                                                 <i class="fa fa-circle-thin"></i> 资产报废
                                             </a>
                                         </li>
@@ -630,6 +637,7 @@ left for Marsellus to throw...
                     </div>
                 </section>
             </div>
+            <!--资产验收功能区-->
             <div id="content-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
@@ -637,20 +645,93 @@ left for Marsellus to throw...
                             <div class="col-lg-12">
                                 <ol class="breadcrumb">
                                     <li><a href="/user/index">首页</a></li>
-                                    <li class="active"><span>系统首页</span></li>
+                                    <li class="active"><span>资产验收</span></li>
                                 </ol>
-                                <h1>欢迎使用仓库管理系统!</h1>
+                                <h1>验收</h1>
                             </div>
                         </div>
-                        <div>右侧内容</div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="main-box show-grid clearfix">
+                                    <div class="main-box-body clearfix">
+                                        <br/>
+                                        <h2>基本信息</h2>
+                                        <div class="row">
+                                            <div class="col-md-9" align="center">泉州市艺达车用电器有限公司 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;版本：1.2<br>
+                                                模具履录表
+                                            </div>
+                                        </div>
+                                        <form action="/assets/addAsset" method="post">
+                                            <div class="row">
+                                                <div class="col-md-9">模具名称：<input type="text" name="nameOfMoldTooling">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    模具编号：<input type="text" name="serialNum"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">模穴数量：<input type="text" name="cavityNum">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    模具材料：<input type="text" name="dieMaterial"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">生产材料：<input type="text" name="mouldMaterial">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    使用单位：<input type="text" name="buildingUser"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">适用设备：<input type="text"
+                                                                                  name="applicableEquipment">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    使用寿命：<input type="text" name="serviceLife"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">保养期限：<input type="text" name="maintenancePeriod">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    联系电话：<input type="text" name="contactPhone"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">制造厂商：<input type="text" name="manufacturers">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    联系姓名：<input type="text" name="contact"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">验收日期：<input type="date" name="acceptanceDates">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9"><input type="submit" value="确认验收" align="center"
+                                                                             class="btn btn-primary"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <footer id="footer-bar" class="row">
+                <!--<footer id="footer-bar" class="row">
                     <p id="footer-copyleft" class="col-xs-12">
-                        &copy; 2019 <a href="http://www.Alibaba.com/" target="_blank">北大青鸟</a>.
-                        北京阿博泰克网络科技有限公司.
+                        &copy; 2014 <a href="http://www.adbee.sk/" target="_blank">Adbee digital</a>. Powered by
+                        Centaurus Theme.
                     </p>
-                </footer>
+                </footer>-->
             </div>
         </div>
     </div>
@@ -756,246 +837,9 @@ left for Marsellus to throw...
 <script src="/js/jquery.nanoscroller.min.js"></script>
 <script src="/js/demo.js"></script>
 
-<script src="/js/jquery-ui.custom.min.js"></script>
-<script src="/js/fullcalendar.min.js"></script>
-<script src="/js/jquery.slimscroll.min.js"></script>
-<script src="/js/raphael-min.js"></script>
-<script src="/js/morris.min.js"></script>
-<script src="/js/moment.min.js"></script>
-<script src="/js/daterangepicker.js"></script>
-<script src="/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/js/jquery-jvectormap-world-merc-en.js"></script>
-<script src="/js/gdp-data.js"></script>
-<script src="/js/flot/jquery.flot.js"></script>
-<script src="/js/flot/jquery.flot.min.js"></script>
-<script src="/js/flot/jquery.flot.pie.min.js"></script>
-<script src="/js/flot/jquery.flot.stack.min.js"></script>
-<script src="/js/flot/jquery.flot.resize.min.js"></script>
-<script src="/js/flot/jquery.flot.time.min.js"></script>
-<script src="/js/flot/jquery.flot.threshold.js"></script>
-<script src="/js/jquery.countTo.js"></script>
-
+<script src="/js/jquery.nestable.js"></script>
 <script src="/js/scripts.js"></script>
 <script src="/js/pace.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-
-        /* initialize the external events
-         -----------------------------------------------------------------*/
-
-        $('#external-events div.external-event').each(function () {
-
-            // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-            // it doesn't need to have a start or end
-            var eventObject = {
-                title: $.trim($(this).text()) // use the element's text as the event title
-            };
-
-            // store the Event Object in the DOM element so we can get to it later
-            $(this).data('eventObject', eventObject);
-
-            // make the event draggable using jQuery UI
-            $(this).draggable({
-                zIndex: 999,
-                revert: true,      // will cause the event to go back to its
-                revertDuration: 0  //  original position after the drag
-            });
-
-        });
-
-
-        /* initialize the calendar
-         -----------------------------------------------------------------*/
-
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-
-        var calendar = $('#calendar').fullCalendar({
-            header: {
-                left: '',
-                center: 'title',
-                left: 'prev,next'
-            },
-            isRTL: $('body').hasClass('rtl'), //rtl support for calendar
-            selectable: true,
-            selectHelper: true,
-            select: function (start, end, allDay) {
-                var title = prompt('Event Title:');
-                if (title) {
-                    calendar.fullCalendar('renderEvent',
-                        {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        },
-                        true // make the event "stick"
-                    );
-                }
-                calendar.fullCalendar('unselect');
-            },
-            editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar !!!
-            drop: function (date, allDay) { // this function is called when something is dropped
-
-                // retrieve the dropped element's stored Event Object
-                var originalEventObject = $(this).data('eventObject');
-
-                // we need to copy it, so that multiple events don't have a reference to the same object
-                var copiedEventObject = $.extend({}, originalEventObject);
-
-                // assign it the date that was reported
-                copiedEventObject.start = date;
-                copiedEventObject.allDay = allDay;
-
-                // copy label class from the event object
-                var labelClass = $(this).data('eventclass');
-
-                if (labelClass) {
-                    copiedEventObject.className = labelClass;
-                }
-
-                // render the event on the calendar
-                // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-                // is the "remove after drop" checkbox checked?
-                if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
-                    $(this).remove();
-                }
-
-            },
-            buttonText: {
-                prev: '<i class="fa fa-chevron-left"></i>',
-                next: '<i class="fa fa-chevron-left"></i>'
-            },
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: new Date(y, m, 1),
-                    className: 'label-success'
-                },
-                {
-                    title: 'Long Event',
-                    start: new Date(y, m, d - 5),
-                    end: new Date(y, m, d - 2)
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d - 3, 16, 0),
-                    allDay: false,
-                    className: 'label-danger'
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d + 4, 16, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
-                    allDay: false,
-                    className: 'label-info'
-                },
-                {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
-                    allDay: false,
-                    className: 'label-success'
-                },
-                {
-                    title: 'Birthday Party',
-                    start: new Date(y, m, d + 1, 19, 0),
-                    end: new Date(y, m, d + 1, 22, 30),
-                    allDay: false,
-                    className: 'label-info'
-                },
-                {
-                    title: 'Click for Google',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
-                    url: 'http://google.com/',
-                    className: 'label-danger'
-                }
-            ]
-        });
-
-        $('.conversation-inner').slimScroll({
-            height: '332px',
-            alwaysVisible: false,
-            railVisible: true,
-            wheelStep: 5,
-            allowPageScroll: false
-        });
-
-        //CHARTS
-        graphLine = Morris.Line({
-            element: 'graph-line',
-            data: [
-                {period: '2014-01-01', iphone: 2666, ipad: null, itouch: 2647},
-                {period: '2014-01-02', iphone: 9778, ipad: 2294, itouch: 2441},
-                {period: '2014-01-03', iphone: 4912, ipad: 1969, itouch: 2501},
-                {period: '2014-01-04', iphone: 3767, ipad: 3597, itouch: 5689},
-                {period: '2014-01-05', iphone: 6810, ipad: 1914, itouch: 2293},
-                {period: '2014-01-06', iphone: 5670, ipad: 4293, itouch: 1881},
-                {period: '2014-01-07', iphone: 4820, ipad: 3795, itouch: 1588},
-                {period: '2014-01-08', iphone: 15073, ipad: 5967, itouch: 5175},
-                {period: '2014-01-09', iphone: 10687, ipad: 4460, itouch: 2028},
-                {period: '2014-01-10', iphone: 8432, ipad: 5713, itouch: 1791}
-            ],
-            lineColors: ['#ffffff'],
-            xkey: 'period',
-            ykeys: ['iphone'],
-            labels: ['iPhone'],
-            pointSize: 3,
-            hideHover: 'auto',
-            gridTextColor: '#ffffff',
-            gridLineColor: 'rgba(255, 255, 255, 0.3)',
-            resize: true
-        });
-
-        //WORLD MAP
-        $('#world-map').vectorMap({
-            map: 'world_merc_en',
-            backgroundColor: '#ffffff',
-            zoomOnScroll: false,
-            regionStyle: {
-                initial: {
-                    fill: '#e1e1e1',
-                    stroke: 'none',
-                    "stroke-width": 0,
-                    "stroke-opacity": 1
-                },
-                hover: {
-                    "fill-opacity": 0.8
-                },
-                selected: {
-                    fill: '#8dc859'
-                },
-                selectedHover: {}
-            },
-            series: {
-                regions: [{
-                    values: gdpData,
-                    scale: ['#6fc4fe', '#2980b9'],
-                    normalizeFunction: 'polynomial'
-                }]
-            },
-            onRegionLabelShow: function (e, el, code) {
-                el.html(el.html() + ' (' + gdpData[code] + ')');
-            }
-        });
-
-        $('.infographic-box .value .timer').countTo({});
-
-    });
-</script>
 </body>
 </html>

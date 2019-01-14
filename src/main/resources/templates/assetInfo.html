@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>*资产详细信息*</title>
+</head>
+<body>
+<div style="width:100%;float: left;" align="center">
+    <div>
+        <h2>泉州市艺达车用电器有限公司</h2><br>
+        <h2>模具信息表 -->借出</h2><br>
+    </div>
+    <table cellpadding="5" >
+        <tr style="background: #89bbd8 ;font-size: 24px;">
+            <td>模具名称</td>
+            <td>编号</td>
+            <td>验收日期</td>
+            <td>模穴数</td>
+            <td>模具材料</td>
+        </tr>
+        <tr >
+            <td><input type="text" name="" th:value="${assetInfo.nameOfMoldTooling}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.serialNum}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.acceptanceDates}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.cavityNum}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.dieMaterial}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+        </tr>
+        <tr style="background: #89bbd8 ;font-size: 24px;">
+            <td>生产材料</td>
+            <td>使用寿命</td>
+            <td>保养期限</td>
+            <td>使用设备</td>
+            <td>使用单位</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="" th:value="${assetInfo.mouldMaterial}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.serviceLife}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.maintenancePeriod}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.applicableEquipment}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.buildingUser}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+        </tr>
+        <tr style="background: #89bbd8 ;font-size: 24px;">
+            <td>制造厂商</td>
+            <td>模具负责人</td>
+            <td>联系电话</td>
+            <td>出库时间</td>
+            <td>入库时间</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="" th:value="${assetInfo.manufacturers}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.contact}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.contactPhone}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.libraryTime}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.storageTime}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+        </tr>
+        <tr style="background: #89bbd8 ;font-size: 24px;">
+            <td>使用模次</td>
+            <td>修理/保养的内容</td>
+            <td>修理/保养费用</td>
+            <td>修理/保养人</td>
+            <td>停工工时</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="" th:value="${assetInfo.usingDiTtimes}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.content}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.shutdownHours}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.head}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.shutdownHours}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+        </tr>
+        <tr style="background: #89bbd8 ;font-size: 24px;">
+            <td>维修次数</td>
+            <td>累计停工工时</td>
+            <td>模具数量</td>
+            <td>模具状态</td>
+            <td>部门名称</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="" th:value="${assetInfo.repairsNum}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.hours}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.moldsNum}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.moldsState}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+            <td><input type="text" name="" th:value="${assetInfo.departmentId}" readonly style="font-size: 18px; background: #95a5a6"/></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+
+

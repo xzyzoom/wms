@@ -1,11 +1,14 @@
 package com.dsj.wms.controller.assetController;
 
 import com.dsj.wms.entity.AssetManagementEntity;
+import com.dsj.wms.entity.DepartmentEntity;
 import com.dsj.wms.service.assetService.AssetService;
+import com.dsj.wms.service.infoService.DepService;
 import com.dsj.wms.utils.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
@@ -21,7 +24,8 @@ public class AssetController {
      */
     @Resource
     private AssetService assetService;
-
+    @Resource
+    private DepService depService;
     @RequestMapping(value = "/acceptance")
     public String assetManagement() {
 
@@ -58,6 +62,7 @@ public class AssetController {
         List<AssetManagementEntity> assetList = null;
         try {
             assetList = assetService.getAssetManagementLists();
+            System.out.println(assetList.size());
             model.addAttribute("assetList", assetList);
         } catch (Exception e) {
             e.printStackTrace();
@@ -81,12 +86,33 @@ public class AssetController {
     //通过ID查询资产详细信息
 @RequestMapping(value = "/getAssetInfo")
     public String getAssetById(Integer id, Model model) {
-        try {
-            AssetManagementEntity assetManagementEntity = assetService.getAssetById(id);
+    AssetManagementEntity assetManagementEntity = null;
+    List<DepartmentEntity> depList = null;
+    try {
+            depList = depService.getDepList();
+            model.addAttribute("depList", depList);
+            assetManagementEntity = assetService.getAssetById(id);
             model.addAttribute("assetInfo", assetManagementEntity);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "assetInfo";
+    }
+    //执行借出（修改字段）
+    @RequestMapping(value = "/loaned")
+    public String loanedAsset(AssetManagementEntity assetManagementEntity, Model model) {
+        System.out.println("****借出****");
+        boolean falg;
+        try {
+            falg = assetService.loanedAsset(assetManagementEntity);
+            if (falg) {
+                System.out.println("****借出成功****");
+                return "redirect:/assets/getAssetList";
+            }
+        } catch (Exception e) {
+            System.out.println("借出失败");
+            e.printStackTrace();
+        }
+        return "redirect:/assets/getAssetInfo";
     }
 }

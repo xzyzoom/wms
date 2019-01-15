@@ -8,16 +8,51 @@
         INSERT INTO asset_management(nameOfMoldTooling,serialNum,cavityNum,dieMaterial,mouldMaterial,buildingUser,applicableEquipment,serviceLife,maintenancePeriod,contactPhone,manufacturers,contact,acceptanceDates)
         VALUES(#{nameOfMoldTooling},#{serialNum},#{cavityNum},#{dieMaterial},#{mouldMaterial},#{buildingUser},#{applicableEquipment},#{serviceLife},#{maintenancePeriod},#{contactPhone},#{manufacturers},#{contact},#{acceptanceDates});
     </insert>
-    <!--资产管理（借出、归还、维修、变更、保养、盘点）查询所有在对用的资产更改其状态-->
+    <!--资产管理（借出、归还、维修、变更、保养、盘点）查询所有在对用的资产更改其状态   0对应的是验收成功  借出-->
     <select id="getAssetManagementList" resultType="AssetManagementEntity">
-        SELECT * FROM asset_management
+        SELECT * FROM asset_management where moldsState=0
     </select>
-    <!--查询资产记录数-->
-    <select id="getAssetCount" resultType="int">
-        SELECT COUNT(1) FROM asset_management
-    </select>
+    <!--借出-修改字段-->
+    <update id="loanedAsset" parameterType="AssetManagementEntity">
+        UPDATE asset_management
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="nameOfMoldTooling !=null">nameOfMoldTooling=#{nameOfMoldTooling},</if>
+            <if test="serialNum !=null">serialNum=#{serialNum},</if>
+            <if test="acceptanceDates!=null">acceptanceDates=#{acceptanceDates},</if>
+            <if test="cavityNum!=null">cavityNum=#{cavityNum},</if>
+            <if test="dieMaterial!=null">dieMaterial=#{dieMaterial},</if>
+
+            <if test="manufacturers!=null">manufacturers=#{manufacturers},</if>
+            <if test="contact!=null">contact=#{contact},</if>
+            <if test="contactPhone!=null">contactPhone=#{contactPhone},</if>
+            <if test="usingDiTtimes!=null">usingDiTtimes=#{usingDiTtimes},</if>
+            <if test="shutdownHours!=null">shutdownHours=#{shutdownHours},</if>
+
+            <if test="mouldMaterial!=null">mouldMaterial=#{mouldMaterial},</if>
+            <if test="serviceLife!=null">serviceLife=#{serviceLife},</if>
+            <if test="maintenancePeriod!=null">maintenancePeriod=#{maintenancePeriod},</if>
+            <if test="applicableEquipment!=null">applicableEquipment=#{applicableEquipment},</if>
+            <if test="buildingUser!=null">buildingUser=#{buildingUser},</if>
+
+
+            <if test="content!=null">content=#{content},</if>
+            <if test="cost!=null">cost=#{cost},</if>
+            <if test="head!=null">head=#{head},</if>
+            <if test="repairsNum!=null">repairsNum=#{repairsNum},</if>
+            <if test="moldsState!=null">moldsState=#{moldsState},</if>
+
+
+            <if test="moldsNum!=null">moldsNum=#{moldsNum},</if>
+            <if test="loaneName!=null">loaneName=#{loaneName},</if>
+            <if test="libraryTime!=null">libraryTime=#{libraryTime},</if>
+            <if test="loanedNum!=null">loanedNum=#{loanedNum},</if>
+            <if test="departmentId!=null">departmentId=#{departmentId},</if>
+
+
+        </trim>
+    </update>
     <!--通过ID查询资产详细信息-->
-    <select id="getAssetById" resultType="AssetManagementEntity">
-    SELECT * FROM asset_management WHERE id=#{id}
+    <select id="getAssetById" parameterType="Integer" resultType="AssetManagementEntity">
+    SELECT  * FROM asset_management  WHERE id=#{id}
     </select>
 </mapper>

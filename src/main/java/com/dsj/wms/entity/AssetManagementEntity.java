@@ -1,7 +1,6 @@
 package com.dsj.wms.entity;
 
 import java.sql.Date;
-import java.util.Objects;
 
 
 public class AssetManagementEntity {
@@ -35,6 +34,8 @@ public class AssetManagementEntity {
     private Integer moldsNum;
     private Integer moldsState;
     private Integer departmentId;
+    private Integer loanedNum;
+    private String loaneName;
 
     public int getId() {
         return id;
@@ -42,6 +43,22 @@ public class AssetManagementEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Integer getLoanedNum() {
+        return loanedNum;
+    }
+
+    public void setLoanedNum(Integer loanedNum) {
+        this.loanedNum = loanedNum;
+    }
+
+    public String getLoaneName() {
+        return loaneName;
+    }
+
+    public void setLoaneName(String loaneName) {
+        this.loaneName = loaneName;
     }
 
     public String getNameOfMoldTooling() {

@@ -39,7 +39,6 @@ public class UserController {
         if (null != user) {// 登录成功
             // 放入session
             session.setAttribute(Constants.USER_SESSION, user);
-            //model.addAttribute("user", user);
             return "redirect:/user/index";
         } else {
             // 页面跳转（login.jsp）带出提示信息--转发

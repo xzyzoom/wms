@@ -641,11 +641,18 @@ right for Marsellus to throw...
                                     <li><a href="/user/index">首页</a></li>
                                     <li class="active"><span>职员信息</span></li>
                                 </ol>
-                                <h1>职 员</h1>
+                                <div class="clearfix">
+                                    <h1 class="pull-left">职 员</h1>
+                                    <div class="pull-right top-page-ui">
+                                        <a href="#" class="btn btn-primary pull-right">
+                                            <i class="fa fa-plus-circle fa-lg"></i> 添加职员
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row" id="card-2">
-                            <div class="col-lg-3 col-sm-6" th:each="staff:${list}">
+                            <div class="col-lg-3 col-sm-6" th:each="staff:${pageInfo.list}">
                                 <div class="card hovercard">
                                     <div class="cardheader"></div>
                                     <div class="avatar">
@@ -667,10 +674,27 @@ right for Marsellus to throw...
                             </div>
                             <div class="main-box-body clearfix">
                                 <ul class="pager" style="max-width: 315px;">
-                                    <li class="previous"><a href="#">&larr; 上一页</a></li>
-                                    <li class="previous"><a>共3页</a></li>
-                                    <li class="previous"><a>第1页</a></li>
-                                    <li class="next"><a href="#">下一页 &rarr;</a></li>
+                                    <li class="previous">
+                                        <!--<a href="#">&larr; 上一页</a>-->
+                                        <a th:if="${not isFirstPage}" th:href="@{${'staffList'}(pageNum=${pageNum}-1,pageSize=${pageSize})}">
+                                            <span aria-hidden="true">&larr; 上一页</span>
+                                        </a>
+                                        <a th:if="${isFirstPage}" href="javascript:void(0);">
+                                            <span aria-hidden="true">&larr; 上一页</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="previous"><a>共<span th:text="${totalPages}"></span>页</a></li>
+                                    <li class="previous"><a>第<span th:text="${pageNum}"></span>页</a></li>
+                                    <li class="next">
+                                        <!--<a href="#">下一页 &rarr;</a>-->
+                                        <a th:if="${not isLastPage}" th:href="@{${'staffList'}(pageNum=${pageNum+1},pageSize=${pageSize})}">
+                                            <span aria-hidden="true">下一页 &rarr;</span>
+                                        </a>
+                                        <a th:if="${isLastPage}" href="javascript:void(0);">
+                                            <span aria-hidden="true">下一页 &rarr;</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

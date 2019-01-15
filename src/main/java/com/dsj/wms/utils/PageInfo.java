@@ -1,6 +1,7 @@
 package com.dsj.wms.utils;
 
 
+import com.dsj.wms.entity.Staff;
 import com.github.pagehelper.Page;
 
 import java.io.Serializable;
@@ -26,10 +27,6 @@ public class PageInfo<T> implements Serializable {
     private boolean isFirstPage = false;
     //是否为最后一页
     private boolean isLastPage = false;
-
-
-    public PageInfo() {
-    }
 
     /**
      * 包装Page对象

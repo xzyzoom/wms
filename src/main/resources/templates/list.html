@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <link rel="stylesheet" th:href="@{../static/bootstrap/css/bootstrap.css}" />
+    <script th:src="@{../static/js/jquery.js}"></script>
+    <script th:src="@{../static/bootstrap/js/bootstrap.js}"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+<div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>id</th>
+            <th>code</th>
+            <th>name</th>
+        </tr>
+        <tr th:each="staff:${list}">
+           <!-- <td th:text="${staff.id}"></td>
+            <td th:text="${user.stacode}"></td>
+            <td th:text="${user.password}"></td>-->
+        </tr>
+    </table>
+
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a th:if="${not isFirstPage}" th:href="@{${'allUsers'}(pageNum=${pageNum-1},pageSize=${pageSize})}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+                <a th:if="${isFirstPage}" href="javascript:void(0);" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <li th:each="pageNo : ${#numbers.sequence(1, totalPages)}">
+                <a th:if="${pageNum eq pageNo}" href="javascript:void(0);">
+                    <span th:text="${pageNo}"></span>
+                </a>
+
+                <a th:if="${not (pageNum eq pageNo)}" th:href="@{${'allUsers'}(pageNum=${pageNo},pageSize=${pageSize})}">
+                    <span th:text="${pageNo}"></span>
+                </a>
+            </li>
+
+            <li>
+                <a th:if="${not isLastPage}" th:href="@{${'allUsers'}(pageNum=${pageNum+1},pageSize=${pageSize})}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                <a th:if="${isLastPage}" href="javascript:void(0);" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

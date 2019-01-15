@@ -645,25 +645,33 @@ right for Marsellus to throw...
                             </div>
                         </div>
                         <div class="row" id="card-2">
-                            <div class="col-lg-3 col-sm-6">
+                            <div class="col-lg-3 col-sm-6" th:each="staff:${list}">
                                 <div class="card hovercard">
                                     <div class="cardheader"></div>
                                     <div class="avatar">
-                                        <img alt="" src="/img/avatar-1.jpg">
+                                        <img alt="" src="/img/avatar-2.jpg">
                                     </div>
                                     <div class="info">
                                         <div class="title">
-                                            <a target="_blank" title="查看详细信息" href="#" th:text="">姓名</a>
+                                            <a target="_blank" title="查看详细信息" href="#" th:text="${staff.staName}">姓名</a>
                                         </div>
-                                        <div class="desc">电话号码</div>
-                                        <div class="desc">所属部门</div>
-                                        <div class="desc">职位</div>
+                                        <div class="desc" th:text="${staff.staCode}">电话号码</div>
+                                        <div class="desc" th:text="${staff.staPhone}">所属部门</div>
+                                        <div class="desc" th:text="${staff.staEmail}">职位</div>
                                     </div>
                                     <div class="bottom">
                                         <button><a href="#">编 辑</a></button>
                                         <button><a href="#">删 除</a></button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="main-box-body clearfix">
+                                <ul class="pager" style="max-width: 315px;">
+                                    <li class="previous"><a href="#">&larr; 上一页</a></li>
+                                    <li class="previous"><a>共3页</a></li>
+                                    <li class="previous"><a>第1页</a></li>
+                                    <li class="next"><a href="#">下一页 &rarr;</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>

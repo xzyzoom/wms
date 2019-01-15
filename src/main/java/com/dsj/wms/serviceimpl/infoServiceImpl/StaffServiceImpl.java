@@ -16,8 +16,6 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public List<Staff> getStaffList(String staCode, String staName, Integer pageNum, Integer pageSize) throws Exception {
-        //使用插件进行分页
-        PageHelper.startPage(pageNum,pageSize);
         return staffMapper.getStaffList(staCode,staName);
     }
 }

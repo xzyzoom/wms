@@ -11,5 +11,11 @@
         select
         <include refid="Basc_Column_List"/>
         from staff
+        <if test="staCode != null and staCode !=''">
+            and staCode like CONCAT('%',#{staCode},'%')
+        </if>
+        <if test="staName != null and staName !=''">
+            and staName like CONCAT('%',#{staName},'%')
+        </if>
     </select>
 </mapper>

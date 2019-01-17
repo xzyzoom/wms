@@ -18,4 +18,56 @@
             and staName like CONCAT('%',#{staName},'%')
         </if>
     </select>
+
+    <select id="getStaffById" parameterType="Integer" resultType="Staff">
+        select
+        <include refid="Basc_Column_List"/>
+        from staff
+        where id = #{id}
+    </select>
+
+    <update id="modifyStaffById" parameterType="Staff">
+        UPDATE staff
+        <set>
+            <if test="staCode!=null">
+                staCode =#{staCode},
+            </if>
+            <if test="staName!=null">
+                staName=#{staName},
+            </if>
+            <if test="staSex !=null">
+                staSex=#{staSex},
+            </if>
+            <if test="staAge!=null">
+                staAge=#{staAge},
+            </if>
+            <if test="staId!=null">
+                staId=#{staId},
+            </if>
+            <if test="staPhone!=null">
+                staPhone=#{staPhone},
+            </if>
+            <if test="staEmail!=null">
+                staEmail=#{staEmail},
+            </if>
+            <if test="staAddress!=null">
+                staAddress=#{staAddress},
+            </if>
+            <!--<if test="staPhoto!=null">
+                staPhoto=#{staPhoto},
+            </if>-->
+            <!--<if test="entryDate!=null">
+                entryDate=#{entryDate},
+            </if>-->
+            <if test="depId!=null">
+                depId=#{depId},
+            </if>
+            <if test="positionId!=null">
+                positionId=#{positionId}
+            </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
 </mapper>

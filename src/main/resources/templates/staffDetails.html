@@ -53,8 +53,6 @@
     <link rel="stylesheet" href="/css/libs/jquery-jvectormap-1.2.2.css" type="text/css"/>
 
     <link type="image/x-icon" href="/img/favicon.png" rel="shortcut icon"/>
-    <!--轮播图css-->
-    <link rel="stylesheet" href="/css/libs/banner.css" type="text/css">
 
     <link href='http://fonts.useso.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet'
           type='text/css'>
@@ -639,9 +637,16 @@ right for Marsellus to throw...
                             <div class="col-lg-12">
                                 <ol class="breadcrumb">
                                     <li><a href="/user/index">首页</a></li>
-                                    <li class="active"><span>欢迎使用仓库管理系统</span></li>
+                                    <li class="active"><span>职员详情</span></li>
                                 </ol>
-                                <!--<h1>欢迎使用仓库管理系统!</h1>-->
+                                <div class="clearfix">
+                                    <h1 class="pull-left">详 情</h1>
+                                    <div class="pull-right top-page-ui">
+                                        <a href="#" class="btn btn-primary pull-right">
+                                            <i class="fa fa-plus-circle fa-lg"></i> 添加职员
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -649,217 +654,10 @@ right for Marsellus to throw...
                                 <div class="main-box clearfix" style="min-height: 1100px;">
                                     <div class="tabs-wrapper tabs-no-header">
                                         <ul class="nav nav-tabs">
-                                            <li class="active"><a href="#tab-home" data-toggle="tab">首页</a></li>
-                                            <li><a href="#tab-accounts" data-toggle="tab">使用指南</a></li>
-                                            <li class="dropdown">
-                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                    我们 <span class="caret"></span>
-                                                </a>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="#tab-configuration" data-toggle="tab">联系我们</a>
-                                                    </li>
-                                                    <li><a href="#tab-configuration" data-toggle="tab">关于我们</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#tab-configuration" data-toggle="tab">意见反馈</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                            <li class="active"><a href="#tab-home" data-toggle="tab">职员详情</a></li>
                                         </ul>
                                         <div class="tab-content">
-                                            <div class="tab-pane fade in active" id="tab-home">
-                                                轮播图
-                                            </div>
-                                            <div class="tab-pane fade" id="tab-accounts">
-                                                <h3><span>操作-Tips</span></h3>
-                                                <div class="panel-group accordion" id="accordion2">
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
-                                                                <a class="accordion-toggle collapsed"
-                                                                   data-toggle="collapse" data-parent="#accordion2"
-                                                                   href="#collapseOne2">
-                                                                    怎么管理系统的基本信息?
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseOne2" class="panel-collapse collapse">
-                                                            <div class="panel-body">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                Aliquam ut porta massa, sit amet maximus odio. Nulla vel
-                                                                sagittis tellus. Nulla tristique nisi vitae blandit
-                                                                vehicula. Sed nunc ex, auctor id semper a, lacinia eu
-                                                                turpis. Maecenas eu mauris vehicula, blandit mauris nec,
-                                                                commodo magna. Nam commodo ultrices placerat. Vivamus
-                                                                suscipit vulputate lacinia. Vestibulum et nisi vel odio
-                                                                dignissim sagittis ut suscipit felis. Vestibulum
-                                                                convallis turpis lectus, a porta est facilisis id.
-                                                                <br/>
-                                                                <br/>
-                                                                Ut tincidunt elit vitae eleifend blandit. Aenean
-                                                                condimentum neque libero, vehicula sodales massa porta
-                                                                tincidunt. Vestibulum quis felis eget ante fringilla
-                                                                interdum. Pellentesque vehicula neque a libero porta
-                                                                cursus a a neque. Sed vitae lectus urna. Vivamus rutrum
-                                                                ex in purus lacinia vehicula. Fusce mollis sapien sit
-                                                                amet ipsum blandit, ac tristique erat aliquam.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
-                                                                <a class="accordion-toggle collapsed"
-                                                                   data-toggle="collapse" data-parent="#accordion2"
-                                                                   href="#collapseTwo2">
-                                                                    有新的订单我要怎么处理?
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseTwo2" class="panel-collapse collapse">
-                                                            <div class="panel-body">
-                                                                Sed lobortis non mi et elementum. Quisque in ex dictum,
-                                                                lacinia augue sit amet, commodo quam. Curabitur sit amet
-                                                                auctor nisi. Aenean viverra elit quam, eget efficitur
-                                                                turpis tincidunt vitae. Pellentesque a velit vitae neque
-                                                                tincidunt pharetra eu vel nisl. Integer ac ipsum sed
-                                                                ligula bibendum molestie vel sed sem. Pellentesque a
-                                                                vehicula ante. Fusce commodo sodales purus eget
-                                                                interdum. Pellentesque id aliquam quam.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
-                                                                <a class="accordion-toggle collapsed"
-                                                                   data-toggle="collapse" data-parent="#accordion2"
-                                                                   href="#collapseThree2">
-                                                                    生产中需要的材料我该怎么处理?
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseThree2" class="panel-collapse collapse">
-                                                            <div class="panel-body">
-                                                                Fusce quis luctus eros, sed bibendum dolor. Nullam eget
-                                                                felis libero. Morbi orci est, tempus suscipit imperdiet
-                                                                a, sollicitudin at elit. Ut a convallis odio, quis
-                                                                rutrum felis. Nullam maximus tellus velit, eu eleifend
-                                                                odio finibus nec. Integer porttitor a enim sed congue.
-                                                                Cras interdum erat non pharetra consectetur.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
-                                                                <a class="accordion-toggle collapsed"
-                                                                   data-toggle="collapse" data-parent="#accordion2"
-                                                                   href="#collapseFour2">
-                                                                    一个季度统计报表该怎么处理?
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseFour2" class="panel-collapse collapse">
-                                                            <div class="panel-body">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                Aliquam ut porta massa, sit amet maximus odio. Nulla vel
-                                                                sagittis tellus. Nulla tristique nisi vitae blandit
-                                                                vehicula. Sed nunc ex, auctor id semper a, lacinia eu
-                                                                turpis. Maecenas eu mauris vehicula, blandit mauris nec,
-                                                                commodo magna. Nam commodo ultrices placerat. Vivamus
-                                                                suscipit vulputate lacinia. Vestibulum et nisi vel odio
-                                                                dignissim sagittis ut suscipit felis. Vestibulum
-                                                                convallis turpis lectus, a porta est facilisis id.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="tab-configuration">
-                                                <h3><span>Technical information</span></h3>
-                                                <div class="panel-group accordion" id="accordion3">
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
-                                                                <a class="accordion-toggle collapsed"
-                                                                   data-toggle="collapse" data-parent="#accordion3"
-                                                                   href="#collapseOne3">
-                                                                    How do I protect unauthorized access to my media on
-                                                                    Centaurus?
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseOne3" class="panel-collapse collapse">
-                                                            <div class="panel-body">
-                                                                Ut tincidunt elit vitae eleifend blandit. Aenean
-                                                                condimentum neque libero, vehicula sodales massa porta
-                                                                tincidunt. Vestibulum quis felis eget ante fringilla
-                                                                interdum. Pellentesque vehicula neque a libero porta
-                                                                cursus a a neque. Sed vitae lectus urna. Vivamus rutrum
-                                                                ex in purus lacinia vehicula. Fusce mollis sapien sit
-                                                                amet ipsum blandit, ac tristique erat aliquam.
-                                                                <br/>
-                                                                <br/>
-                                                                Mauris eu ultrices metus. Nam blandit malesuada metus a
-                                                                laoreet. Maecenas nec dolor at purus elementum aliquam.
-                                                                Sed id risus at elit facilisis laoreet. Duis mollis ac
-                                                                justo sed varius. Duis non dolor non tellus tincidunt
-                                                                vestibulum at ac velit. Ut quis urna erat. Duis turpis
-                                                                est, egestas sed pellentesque fringilla, mattis eu
-                                                                augue.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
-                                                                <a class="accordion-toggle collapsed"
-                                                                   data-toggle="collapse" data-parent="#accordion3"
-                                                                   href="#collapseTwo3">
-                                                                    Which IP addresses will Centaurus’s requests come
-                                                                    from?
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseTwo3" class="panel-collapse collapse">
-                                                            <div class="panel-body">
-                                                                Sed lobortis non mi et elementum. Quisque in ex dictum,
-                                                                lacinia augue sit amet, commodo quam. Curabitur sit amet
-                                                                auctor nisi. Aenean viverra elit quam, eget efficitur
-                                                                turpis tincidunt vitae. Pellentesque a velit vitae neque
-                                                                tincidunt pharetra eu vel nisl. Integer ac ipsum sed
-                                                                ligula bibendum molestie vel sed sem. Pellentesque a
-                                                                vehicula ante. Fusce commodo sodales purus eget
-                                                                interdum. Pellentesque id aliquam quam.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading">
-                                                            <h4 class="panel-title">
-                                                                <a class="accordion-toggle collapsed"
-                                                                   data-toggle="collapse" data-parent="#accordion3"
-                                                                   href="#collapseThree3">
-                                                                    What are Centaurus's business hours for support?
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseThree3" class="panel-collapse collapse">
-                                                            <div class="panel-body">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                Aliquam ut porta massa, sit amet maximus odio. Nulla vel
-                                                                sagittis tellus. Nulla tristique nisi vitae blandit
-                                                                vehicula. Sed nunc ex, auctor id semper a, lacinia eu
-                                                                turpis. Maecenas eu mauris vehicula, blandit mauris nec,
-                                                                commodo magna. Nam commodo ultrices placerat. Vivamus
-                                                                suscipit vulputate lacinia. Vestibulum et nisi vel odio
-                                                                dignissim sagittis ut suscipit felis. Vestibulum
-                                                                convallis turpis lectus, a porta est facilisis id.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            内容
                                         </div>
                                     </div>
                                 </div>

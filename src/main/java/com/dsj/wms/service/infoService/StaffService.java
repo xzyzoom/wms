@@ -8,4 +8,7 @@ public interface StaffService {
 
     public List<Staff> getStaffList(String staCode, String staName, Integer pageNum, Integer pageSize) throws Exception;
 
+    public Staff selectStaffById(Integer id) throws Exception;
+
+    public boolean modifyStaffById(Staff staff) throws Exception;
 }

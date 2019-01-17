@@ -10,4 +10,8 @@ import java.util.List;
 public interface StaffMapper {
 
     public List<Staff> getStaffList(@Param("staCode") String staCode, @Param("staName") String staName) throws Exception;
+
+    public Staff getStaffById(@Param("id") Integer id) throws Exception;
+
+    public int modifyStaffById(Staff staff) throws Exception;
 }

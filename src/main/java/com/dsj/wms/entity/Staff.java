@@ -1,5 +1,7 @@
 package com.dsj.wms.entity;
 
+import java.util.Date;
+
 /**
  * 人员信息
  */
@@ -14,7 +16,9 @@ public class Staff {
     private String staEmail;
     private String staAddress;
     private String staPhoto;
+    private Date entryDate;
     private int depId;
+    private int positionId;
 
     public int getId() {
         return id;
@@ -96,11 +100,27 @@ public class Staff {
         this.staPhoto = staPhoto;
     }
 
+    public Date getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
+    }
+
     public int getDepId() {
         return depId;
     }
 
     public void setDepId(int depId) {
         this.depId = depId;
+    }
+
+    public int getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(int positionId) {
+        this.positionId = positionId;
     }
 }

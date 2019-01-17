@@ -8,14 +8,28 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 @Service
 public class StaffServiceImpl implements StaffService {
     @Resource
     private StaffMapper staffMapper;
 
-
     @Override
     public List<Staff> getStaffList(String staCode, String staName, Integer pageNum, Integer pageSize) throws Exception {
-        return staffMapper.getStaffList(staCode,staName);
+        return staffMapper.getStaffList(staCode, staName);
+    }
+
+    @Override
+    public Staff selectStaffById(Integer id) throws Exception {
+        return staffMapper.getStaffById(id);
+    }
+
+    @Override
+    public boolean modifyStaffById(Staff staff) throws Exception {
+        boolean flag = false;
+        if (staffMapper.modifyStaffById(staff) > 0) {
+            flag = true;
+        }
+        return flag;
     }
 }

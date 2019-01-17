@@ -1,5 +1,8 @@
 package com.dsj.wms.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 /**
@@ -16,6 +19,8 @@ public class Staff {
     private String staEmail;
     private String staAddress;
     private String staPhoto;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JSONField(format = "yyyy-MM-dd")
     private Date entryDate;
     private int depId;
     private int positionId;

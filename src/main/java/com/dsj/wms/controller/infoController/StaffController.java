@@ -61,7 +61,7 @@ public class StaffController {
 
     //保存编辑后的职员信息
     @Transactional
-    @RequestMapping(value = "/staffSave",method = RequestMethod.POST)
+    @RequestMapping(value = "/staffSave", method = RequestMethod.POST)
     public String staffSave(Staff staff) {
         boolean flag = false;
         try {
@@ -73,6 +73,26 @@ public class StaffController {
             e.printStackTrace();
         }
         return "staffModify";
+    }
+
+    //添加职员
+    @RequestMapping(value = "/staffAdd")
+    public String addPage() {
+        return "staffAdd";
+    }
+
+    //保存添加结果
+    @RequestMapping(value = "/doAdd", method = RequestMethod.POST)
+    public String doStaffAdd(Staff staff) {
+        try {
+            boolean flag = staffService.addStaff(staff);
+            if (flag) {
+                return "redirect:/staff/staffList";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "staffAdd";
     }
 
     //职员详情

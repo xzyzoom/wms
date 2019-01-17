@@ -17,6 +17,7 @@
         <if test="staName != null and staName !=''">
             and staName like CONCAT('%',#{staName},'%')
         </if>
+        order by id desc
     </select>
 
     <select id="getStaffById" parameterType="Integer" resultType="Staff">
@@ -55,8 +56,8 @@
             </if>
             <!--<if test="staPhoto!=null">
                 staPhoto=#{staPhoto},
-            </if>-->
-            <!--<if test="entryDate!=null">
+            </if>
+            <if test="entryDate!=null">
                 entryDate=#{entryDate},
             </if>-->
             <if test="depId!=null">
@@ -66,8 +67,16 @@
                 positionId=#{positionId}
             </if>
         </set>
-        <where>
-            id = #{id}
-        </where>
+        where id = #{id}
     </update>
+
+    <insert id="addStaff" parameterType="Staff">
+        insert into staff
+        (staCode,staName,staSex,staAge,staId,staPhone,staEmail,
+        staAddress,staPhoto,depId,positionId)
+          values (#{staCode},#{staName},#{staSex},#{staAge},#{staId},#{staPhone},
+                        #{staEmail},#{staAddress},#{staPhoto},
+                        #{depId},#{positionId}
+        )
+    </insert>
 </mapper>

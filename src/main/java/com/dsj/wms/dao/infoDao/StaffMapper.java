@@ -14,4 +14,6 @@ public interface StaffMapper {
     public Staff getStaffById(@Param("id") Integer id) throws Exception;
 
     public int modifyStaffById(Staff staff) throws Exception;
+
+    public int addStaff(Staff staff) throws Exception;
 }

@@ -32,4 +32,13 @@ public class StaffServiceImpl implements StaffService {
         }
         return flag;
     }
+
+    @Override
+    public boolean addStaff(Staff staff) throws Exception {
+        boolean flag = false;
+        if (staffMapper.addStaff(staff) > 0) {
+            flag = true;
+        }
+        return flag;
+    }
 }

@@ -649,108 +649,142 @@ right for Marsellus to throw...
                                 </div>
                             </div>
                         </div>
-                       <!-- <form id="" action="" method="" th:type="">-->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="main-box clearfix" style="min-height: 1100px;">
-                                    <div class="tabs-wrapper tabs-no-header">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"><a href="#tab-home" data-toggle="tab">添加职员信息</a></li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div class="step-pane" id="step3">
-                                                <div class="form-group">
-                                                <label for="maskedDate">职员编号</label>
-                                                <div class="input-group">
+                        <form action="/staff/doAdd" method="post">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="main-box clearfix" style="min-height: 1100px;">
+                                        <div class="tabs-wrapper tabs-no-header">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a href="#tab-home" data-toggle="tab">添加职员信息</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="step-pane" id="step3">
+                                                    <div class="form-group" style="width: 48%;float: left;">
+                                                        <label for="maskedDate">职员编号</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-circle-o"></i></span>
-                                                    <input type="text" class="form-control" id="maskedDate" th:name="staCode">
-                                                </div>
-                                            </div>
-                                                <div class="form-group">
-                                                    <label for="maskedPhone">职员姓名</label>
-                                                    <div class="input-group">
+                                                            <input type="text" class="form-control" id="maskedDate"
+                                                                   name="staCode">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="width: 48%;float: right;">
+                                                        <label for="maskedPhone">职员姓名</label>
+                                                        <div class="input-group">
                                                         <span class="input-group-addon"><i
                                                                 class="fa fa-files-o"></i></span>
-                                                        <input type="text" class="form-control" id="maskedPhone" th:name="staName">
+                                                            <input type="text" class="form-control" id="maskedPhone"
+                                                                   name="staName">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                       <div class="form-group">
-                                                    <label for="maskedPhoneExt">职员性别</label>
-                                                    <div class="input-group">
+                                                    <div class="form-group" style="width: 48%;float:left">
+                                                        <label>职员性别</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-code-fork"></i></span>
-                                                        <input type="text" class="form-control" id="maskedPhoneExt" th:name="staSex">
+                                                            <div class="col-lg-3" style="width: 440px;">
+                                                                <select class="form-control" name="staSex" >
+                                                                    <option>--请选择--</option>
+                                                                    <option value="1">男</option>
+                                                                    <option value="2">女</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="maskedDate">职员年龄</label>
-                                                    <div class="input-group">
+                                                    <div class="form-group" style="width: 48%;float: right;">
+                                                        <label for="maskedDate">职员年龄</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-calendar-o"></i></span>
-                                                        <input type="text" class="form-control" id="maskedDate1" th:name="staAge">
+                                                            <input type="text" class="form-control" id="maskedDate1"
+                                                                   name="staAge">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="maskedDate">身份证号</label>
-                                                    <div class="input-group">
+                                                    <div class="form-group" style="width: 48%;float: left;">
+                                                        <label for="maskedDate">身份证号</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-credit-card"></i></span>
-                                                        <input type="text" class="form-control" id="maskedDate2" th:name="staId">
+                                                            <input type="text" class="form-control" id="maskedDate2"
+                                                                   name="staId">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="maskedDate">手机号码</label>
-                                                    <div class="input-group">
+                                                    <div class="form-group" style="width: 48%;float: right;">
+                                                        <label for="maskedDate">手机号码</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-phone"></i></span>
-                                                        <input type="text" class="form-control" id="maskedDate3" th:name="staPhone">
+                                                            <input type="text" class="form-control" id="maskedDate3"
+                                                                   name="staPhone">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="maskedDate">电子邮箱</label>
-                                                    <div class="input-group">
+                                                    <div class="form-group" style="width: 48%;float: left;">
+                                                        <label for="maskedDate">电子邮箱</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-envelope-square"></i></span>
-                                                        <input type="text" class="form-control" id="maskedDate4" th:name="staEmail">
+                                                            <input type="text" class="form-control" id="maskedDate4"
+                                                                   name="staEmail">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="maskedDate">家庭住址</label>
-                                                    <div class="input-group">
+                                                    <div class="form-group" style="width: 48%;float: right;">
+                                                        <label for="maskedDate">家庭住址</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-home"></i></span>
-                                                        <input type="text" class="form-control" id="maskedDate5" th:name="staAddress">
+                                                            <input type="text" class="form-control" id="maskedDate5"
+                                                                   name="staAddress">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="maskedDate">个人头像</label>
-                                                    <div class="input-group">
+                                                    <div class="form-group" style="width: 48%;float: left;">
+                                                        <label for="maskedDate">个人头像</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-picture-o"></i></span>
-                                                        <input type="file" class="form-control" id="maskedDate6" th:name="staPhoto">
+                                                            <input type="file" class="form-control" id="maskedDate6"
+                                                                   name="staPhoto">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="maskedDate">所属部门</label>
-                                                    <div class="input-group">
+                                                    <div class="form-group" style="width: 48%;float: right;">
+                                                        <label for="maskedDate">入职日期</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i
+                                                                    class="fa fa-calendar-o"></i></span>
+                                                            <input type="date" class="form-control" id="maskedDate8"
+                                                                   name="entryDate">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="width: 48%;float: left;">
+                                                        <label for="maskedDate">所属部门</label>
+                                                        <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-users"></i></span>
-                                                        <input type="text" class="form-control" id="maskedDate7" th:name="depId">
+                                                            <input type="text" class="form-control" id="maskedDate7"
+                                                                   name="depId">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="width: 48%;float: right;">
+                                                        <label for="maskedDate">部门职位</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i
+                                                                    class="fa fa-users"></i></span>
+                                                            <input type="text" class="form-control" id="maskedDate9"
+                                                                   name="positionId">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="pull-left top-page-ui">
-                                                <a href="#" class="btn btn-primary pull-right">
-                                                    <i class="glyphicon glyphicon-ok-sign"></i> 确认添加
-                                                </a>
+                                                <div class="pull-left top-page-ui">
+                                                    <button type="submit" class="btn btn-primary pull-right">
+                                                        <i class="glyphicon glyphicon-ok-sign"></i> 确认添加
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!--</form>-->
+                        </form>
                     </div>
                 </div>
                 <footer id="footer-bar" class="row">

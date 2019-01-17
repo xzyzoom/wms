@@ -1,0 +1,7 @@
+/*,staSex,
+        staAge,staId,staPhone,staEmail,staAddress,
+        staPhoto,entryDate,depId,positionId*/
+
+        /*,#{staSex},#{staAge},#{staId},#{staPhone},
+                        #{staEmail},#{staAddress},#{staPhoto},#{entryDate},*
+                       #{depId},#{positionId}*/

@@ -77,11 +77,11 @@
                 "twttr" in b && "events" in twttr && "bind" in twttr.events && twttr.events.bind("tweet", function (a) {
                     if (a) {
                         var b;
-                        if (a.target && a.target.nodeName == "IFRAME")a:{
+                        if (a.target && a.target.nodeName == "IFRAME") a:{
                             if (a = a.target.src) {
                                 a = a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);
                                 b = 0;
-                                for (var c; c = a[b]; ++b)if (c.indexOf("url") === 0) {
+                                for (var c; c = a[b]; ++b) if (c.indexOf("url") === 0) {
                                     b = unescape(c.split("=")[1]);
                                     break a
                                 }
@@ -644,7 +644,7 @@ right for Marsellus to throw...
                                 <div class="clearfix">
                                     <h1 class="pull-left">职 员</h1>
                                     <div class="pull-right top-page-ui">
-                                        <a href="#" class="btn btn-primary pull-right">
+                                        <a href="/staff/staffAdd" class="btn btn-primary pull-right">
                                             <i class="fa fa-plus-circle fa-lg"></i> 添加职员
                                         </a>
                                     </div>
@@ -660,15 +660,16 @@ right for Marsellus to throw...
                                     </div>
                                     <div class="info">
                                         <div class="title">
-                                            <a title="查看详细信息" href="/staff/staffDetails" th:text="${staff.staName}">姓名</a>
+                                            <a title="查看详细信息" href="/staff/staffDetails"
+                                               th:text="${staff.staName}">姓名</a>
                                         </div>
-                                        <div class="desc" th:text="${staff.staCode}">电话号码</div>
-                                        <div class="desc" th:text="${staff.staPhone}">所属部门</div>
-                                        <div class="desc" th:text="${staff.staEmail}">职位</div>
+                                        <div class="desc">号码：<span th:text="${staff.staCode}"></span></div>
+                                        <div class="desc">部门：<span th:text="${staff.staPhone}"></span></div>
+                                        <div class="desc">职位：<span th:text="${staff.staEmail}"></span></div>
                                     </div>
                                     <div class="bottom">
                                         <button><a th:href="@{${'staffModify'}(id=${staff.id})}">编 辑</a></button>
-                                        <button><a href="#">删 除</a></button>
+                                        <button><a th:href="@{${'staffModify'}(id=${staff.id})}">删 除</a></button>
                                     </div>
                                 </div>
                             </div>
@@ -676,7 +677,8 @@ right for Marsellus to throw...
                         <div class="main-box-body clearfix">
                             <ul class="pager" style="max-width: 315px;margin: auto">
                                 <li class="previous">
-                                    <a th:if="${not isFirstPage}" th:href="@{${'staffList'}(pageNum=${pageNum}-1,pageSize=${pageSize})}">
+                                    <a th:if="${not isFirstPage}"
+                                       th:href="@{${'staffList'}(pageNum=${pageNum}-1,pageSize=${pageSize})}">
                                         <span aria-hidden="true">&larr; 上一页</span>
                                     </a>
                                     <a th:if="${isFirstPage}" href="javascript:void(0);">
@@ -686,7 +688,8 @@ right for Marsellus to throw...
                                 <li class="previous"><a>共<span th:text="${totalPages}"></span>页</a></li>
                                 <li class="previous"><a>第<span th:text="${pageNum}"></span>页</a></li>
                                 <li class="next">
-                                    <a th:if="${not isLastPage}" th:href="@{${'staffList'}(pageNum=${pageNum+1},pageSize=${pageSize})}">
+                                    <a th:if="${not isLastPage}"
+                                       th:href="@{${'staffList'}(pageNum=${pageNum+1},pageSize=${pageSize})}">
                                         <span aria-hidden="true">下一页 &rarr;</span>
                                     </a>
                                     <a th:if="${isLastPage}" href="javascript:void(0);">

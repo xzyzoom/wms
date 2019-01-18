@@ -21,7 +21,8 @@ public class StaffController {
     private StaffService staffService;
 
     @RequestMapping(value = "/staffList")
-    /*@ResponseBody*/ public String selectStaffList(Model model, String staCode, String staName, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum, @RequestParam(defaultValue = "4", value = "pageSize") Integer pageSize) throws Exception {
+    /*@ResponseBody*/ public String selectStaffList(Model model, String staCode, String staName, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
+                                                    @RequestParam(defaultValue = "4", value = "pageSize") Integer pageSize) throws Exception {
         //引入分页查询，使用PageHelper分页功能在查询之前传入当前页，然后多少记录
         PageHelper.startPage(pageNum, pageSize);
         //startPage后紧跟的这个查询就是分页查询

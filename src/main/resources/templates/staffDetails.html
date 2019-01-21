@@ -75,11 +75,11 @@
                 "twttr" in b && "events" in twttr && "bind" in twttr.events && twttr.events.bind("tweet", function (a) {
                     if (a) {
                         var b;
-                        if (a.target && a.target.nodeName == "IFRAME")a:{
+                        if (a.target && a.target.nodeName == "IFRAME") a:{
                             if (a = a.target.src) {
                                 a = a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);
                                 b = 0;
-                                for (var c; c = a[b]; ++b)if (c.indexOf("url") === 0) {
+                                for (var c; c = a[b]; ++b) if (c.indexOf("url") === 0) {
                                     b = unescape(c.split("=")[1]);
                                     break a
                                 }
@@ -657,7 +657,92 @@ right for Marsellus to throw...
                                             <li class="active"><a href="#tab-home" data-toggle="tab">职员详情</a></li>
                                         </ul>
                                         <div class="tab-content">
-                                            内容
+                                            <div class="step-pane" id="step3">
+                                                <div class="form-group" style="width: 48%;float: left;">
+                                                    <label>职员编号</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-circle-o"></i> :
+                                                        <span th:text="${staff.staCode}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: right;">
+                                                    <label>职员姓名</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-files-o"></i> :
+                                                        <span th:text="${staff.staName}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float:left">
+                                                    <label>职员性别</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-code-fork"></i> :
+                                                        <span th:text="${staff.staSex}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: right;">
+                                                    <label>职员年龄</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-calendar-o"></i> :
+                                                        <span th:text="${staff.staAge}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: left;">
+                                                    <label>身份证号</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-credit-card"></i> :
+                                                        <span th:text="${staff.staId}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: right;">
+                                                    <label>手机号码</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-phone"></i> :
+                                                        <span th:text="${staff.staPhone}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: left;">
+                                                    <label>电子邮箱</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-envelope-square"></i> :
+                                                        <span th:text="${staff.staEmail}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: right;">
+                                                    <label>家庭住址</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-home"></i> :
+                                                        <span th:text="${staff.staAddress}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: left;">
+                                                    <label>个人头像</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-picture-o"></i> :
+                                                        <span th:text="${staff.staPhoto}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: right;">
+                                                    <label>入职日期</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-calendar-o"></i> :
+                                                        <span th:text="${#dates.format(staff.entryDate, 'yyyy/MM/dd')}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: left;">
+                                                    <label>所属部门</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-users"></i> :
+                                                        <span th:text="${staff.depId}"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" style="width: 48%;float: right;">
+                                                    <label>部门职位</label>
+                                                    <div class="input-group">
+                                                        <i class="fa fa-users"></i> :
+                                                        <span th:text="${staff.positionId}"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

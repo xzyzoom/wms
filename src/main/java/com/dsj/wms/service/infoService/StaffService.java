@@ -13,4 +13,6 @@ public interface StaffService {
     public boolean modifyStaffById(Staff staff) throws Exception;
 
     public boolean addStaff(Staff staff) throws Exception;
+
+    public boolean delStaffById(Integer id) throws Exception;
 }

@@ -20,4 +20,5 @@ public interface UserMapper {
     public int addUser(User user) throws Exception;
 
     public int updateUserStateById(@Param("id") Integer id) throws Exception;
+
 }

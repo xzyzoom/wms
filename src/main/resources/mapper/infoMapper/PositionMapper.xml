@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dsj.wms.dao.infoDao.DepMapper">
+<mapper namespace="com.dsj.wms.dao.infoDao.PositionMapper">
     <sql id="Basc_colunm">
-        id,depName
+        id,position,remarks,depId
     </sql>
 
-    <select id="getDepList" resultType="DepartmentEntity">
+    <select id="getPositionList" resultType="JobPosition">
       SELECT
         <include refid="Basc_colunm"/>
-      FROM department
+      FROM job_position
     </select>
 
 </mapper>

@@ -660,16 +660,16 @@ right for Marsellus to throw...
                                     </div>
                                     <div class="info">
                                         <div class="title">
-                                            <a title="查看详细信息" href="/staff/staffDetails"
+                                            <a title="查看详细信息" th:href="@{${'staffDetails'}(id=${staff.id})}"
                                                th:text="${staff.staName}">姓名</a>
                                         </div>
-                                        <div class="desc">号码：<span th:text="${staff.staCode}"></span></div>
+                                        <div class="desc">编号：<span th:text="${staff.staCode}"></span></div>
                                         <div class="desc">部门：<span th:text="${staff.staPhone}"></span></div>
                                         <div class="desc">职位：<span th:text="${staff.staEmail}"></span></div>
                                     </div>
                                     <div class="bottom">
                                         <button><a th:href="@{${'staffModify'}(id=${staff.id})}">编 辑</a></button>
-                                        <button><a th:href="@{${'staffModify'}(id=${staff.id})}">删 除</a></button>
+                                        <button><a th:href="@{${'delById'}(id=${staff.id})}">删 除</a></button>
                                     </div>
                                 </div>
                             </div>

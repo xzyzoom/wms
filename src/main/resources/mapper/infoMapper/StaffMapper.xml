@@ -79,4 +79,8 @@
                         #{depId},#{positionId}
         )
     </insert>
+
+    <delete id="delStaffById" parameterType="Integer">
+        delete from staff where id = #{id}
+    </delete>
 </mapper>

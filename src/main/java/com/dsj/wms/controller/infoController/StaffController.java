@@ -1,6 +1,10 @@
 package com.dsj.wms.controller.infoController;
 
+import com.dsj.wms.entity.DepartmentEntity;
+import com.dsj.wms.entity.JobPosition;
 import com.dsj.wms.entity.Staff;
+import com.dsj.wms.service.infoService.DepService;
+import com.dsj.wms.service.infoService.PositionService;
 import com.dsj.wms.service.infoService.StaffService;
 import com.dsj.wms.utils.PageInfo;
 import com.github.pagehelper.PageHelper;
@@ -19,6 +23,10 @@ import java.util.List;
 public class StaffController {
     @Resource
     private StaffService staffService;
+    @Resource
+    private DepService depService;
+    @Resource
+    private PositionService positionService;
 
     @RequestMapping(value = "/staffList")
     /*@ResponseBody*/ public String selectStaffList(Model model, String staCode, String staName, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum, @RequestParam(defaultValue = "4", value = "pageSize") Integer pageSize) throws Exception {
@@ -50,9 +58,18 @@ public class StaffController {
     public String modifyStaff(@RequestParam Integer id, Model model) {
         try {
             Staff staff = staffService.selectStaffById(id);
+            List<DepartmentEntity> departmentEntityList = null;
+            List<JobPosition> jobPositionList = null;
+            departmentEntityList = depService.getDepList();
+            jobPositionList = positionService.getPositionList();
             if (staff != null) {
                 model.addAttribute("staff", staff);
             }
+            if (null != departmentEntityList && null != jobPositionList) {
+                model.addAttribute("depList", departmentEntityList);
+                model.addAttribute("positionList", jobPositionList);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,7 +94,19 @@ public class StaffController {
 
     //添加职员
     @RequestMapping(value = "/staffAdd")
-    public String addPage() {
+    public String addPage(Model model) {
+        List<DepartmentEntity> departmentEntityList = null;
+        List<JobPosition> jobPositionList = null;
+        try {
+            departmentEntityList = depService.getDepList();
+            jobPositionList = positionService.getPositionList();
+            if (null != departmentEntityList && null != jobPositionList) {
+                model.addAttribute("depList", departmentEntityList);
+                model.addAttribute("positionList", jobPositionList);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "staffAdd";
     }
 
@@ -95,9 +124,31 @@ public class StaffController {
         return "staffAdd";
     }
 
+    //根据Id删除职员
+    @RequestMapping(value = "/delById")
+    public String delStaffById(@RequestParam Integer id) {
+        try {
+            boolean flag = staffService.delStaffById(id);
+            if (flag) {
+                return "redirect:/staff/staffList";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/staff/staffList";
+    }
+
     //职员详情
     @RequestMapping(value = "/staffDetails")
-    public String showStaffDetail() {
+    public String showStaffDetail(@RequestParam Integer id, Model model) {
+        try {
+            Staff staff = staffService.selectStaffById(id);
+            if (staff != null) {
+                model.addAttribute("staff", staff);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "staffDetails";
     }
 }

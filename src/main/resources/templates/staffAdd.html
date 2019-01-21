@@ -683,8 +683,7 @@ right for Marsellus to throw...
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-code-fork"></i></span>
                                                             <div class="col-lg-3" style="width: 440px;">
-                                                                <select class="form-control" name="staSex" >
-                                                                    <option>--请选择--</option>
+                                                                <select class="form-control" name="staSex">
                                                                     <option value="1">男</option>
                                                                     <option value="2">女</option>
                                                                 </select>
@@ -752,7 +751,6 @@ right for Marsellus to throw...
                                                                     class="fa fa-calendar-o"></i></span>
                                                             <input type="date" class="form-control" id="maskedDate8"
                                                                    name="entryDate">
-
                                                         </div>
                                                     </div>
                                                     <div class="form-group" style="width: 48%;float: left;">
@@ -760,8 +758,14 @@ right for Marsellus to throw...
                                                         <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-users"></i></span>
-                                                            <input type="text" class="form-control" id="maskedDate7"
-                                                                   name="depId">
+                                                            <div class="col-lg-3" style="width: 440px;">
+                                                                <select class="form-control" name="depId">
+                                                                    <span th:each="dep:${depList}">
+                                                                        <option th:value="${dep.id}"><span
+                                                                                th:text="${dep.depName}"></span></option>
+                                                                    </span>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group" style="width: 48%;float: right;">
@@ -769,8 +773,14 @@ right for Marsellus to throw...
                                                         <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-users"></i></span>
-                                                            <input type="text" class="form-control" id="maskedDate9"
-                                                                   name="positionId">
+                                                            <div class="col-lg-3" style="width: 440px;">
+                                                                <select class="form-control" name="positionId">
+                                                                    <span th:each="position:${positionList}">
+                                                                        <option th:value="${position.id}"><span
+                                                                                th:text="${position.position}"></span></option>
+                                                                    </span>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

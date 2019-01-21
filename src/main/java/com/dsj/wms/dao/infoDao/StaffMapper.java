@@ -16,4 +16,6 @@ public interface StaffMapper {
     public int modifyStaffById(Staff staff) throws Exception;
 
     public int addStaff(Staff staff) throws Exception;
+
+    public int delStaffById(@Param("id") Integer id) throws Exception;
 }

@@ -41,4 +41,13 @@ public class StaffServiceImpl implements StaffService {
         }
         return flag;
     }
+
+    @Override
+    public boolean delStaffById(Integer id) throws Exception {
+        boolean flag = false;
+        if (staffMapper.delStaffById(id) > 0) {
+            flag = true;
+        }
+        return flag;
+    }
 }

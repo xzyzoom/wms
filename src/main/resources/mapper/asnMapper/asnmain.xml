@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dsj.wms.dao.asnDao.asnMapper">
+
+    <select id="getasnList" resultType="asnmain">
+     SELECT * ,(SELECT sup.supName FROM `supplier` AS sup WHERE sup.`id`=main.`supId`)AS supName,
+ (SELECT dep.depName FROM `department` AS dep WHERE dep.`id`=main.`depId`)AS depName,
+  (SELECT sta.staName FROM `staff` AS sta WHERE sta.`id`=main.`staId`)AS staName
+ FROM asn AS main
+    </select>
+    <select id="getasnbyid" resultType="asnmain" parameterType="int">
+     SELECT * ,(SELECT sup.supName FROM `supplier` AS sup WHERE sup.`id`=main.`supId`)AS supName,
+ (SELECT dep.depName FROM `department` AS dep WHERE dep.`id`=main.`depId`)AS depName,
+  (SELECT sta.staName FROM `staff` AS sta WHERE sta.`id`=main.`staId`)AS staName
+ FROM asn AS main WHERE main.`id`=#{id}
+    </select>
+
+
+<insert id="insertasn" parameterType="asnmain">
+    INSERT INTO`asn` (documentNo,createTime,deliveryTime,arrivalTime,supId,depId,staId,
+    transportType,arrivalAddress,remarks,inventoryCode,inventoryName,
+    specificationType,unit,orderQuantity,arriveNum,unArriveNum,waitSendNum,packgingNum
+    )VALUES(#{documentNo},#{createTime},#{deliveryTime},#{arrivalTime},#{supId},
+    #{depId},#{staId},#{transportType},#{arrivalAddress},#{remarks},#{inventoryCode},#{inventoryName},
+    #{specificationType},#{unit},#{orderQuantity},#{arriveNum},#{unArriveNum},#{waitSendNum},#{packgingNum})
+</insert>
+    <update id="updateasn"  parameterType="asnmain">
+  update `asn` set documentNo=#{documentNo},createTime=#{createTime},deliveryTime=#{deliveryTime},arrivalTime=#{arrivalTime},supId=#{supId},
+  depId=#{depId},staId=#{staId},transportType=#{transportType},arrivalAddress=#{arrivalAddress},
+  remarks=#{remarks},inventoryCode=#{inventoryCode},inventoryName=#{inventoryName},specificationType=#{specificationType},unit=#{unit},
+  orderQuantity=#{orderQuantity},arriveNum=#{arriveNum},unArriveNum=#{unArriveNum},waitSendNum=#{waitSendNum},packgingNum=#{packgingNum} where id=#{id}
+    </update>
+   <delete id="deleteasn" parameterType="int">
+       delete from  `asn` where id=#{id}
+   </delete>
+</mapper>

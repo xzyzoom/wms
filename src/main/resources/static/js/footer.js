@@ -106,6 +106,7 @@ document.writeln("    </div>");
 document.writeln("</div>");
 document.writeln("");
 document.writeln("<script src=\'/js/demo-skin-changer.js\'></script>");
+document.writeln("<script src=\'/js/jquery.min.js\'></script>");
 document.writeln("<script src=\'/js/jquery.js\'></script>");
 document.writeln("<script src=\'/js/bootstrap.js\'></script>");
 document.writeln("<script src=\'/js/jquery.nanoscroller.min.js\'></script>");

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript" src="../js/header.js"></script>
+
+    <div>
+<div><button type="button" id="insert" class="btn btn-primary" onclick="insert()">新增ASN单</button></div>
+        <script>
+            function insert() {
+                window.location.href="insertASN.html";
+            }
+        </script>
+    <div class="main-box-body clearfix">
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><span>id</span></th>
+                    <th><span>单据号</span></th>
+                    <th><span>生成ASN单日期</span></th>
+                    <th><span>到货地址</span></th>
+                    <th><span>供应商</span></th>
+                    <th><span>部门</span></th>
+                    <th class="text-center"><span>业务员</span></th>
+                    <th class="text-center"><span>操作</span></th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="asnmain,asnmainStat:${list}">
+                    <td th:text="${asnmain.id}"></td>
+                    <td th:text="${asnmain.documentNo}">
+
+                    </td>
+
+                   <!-- <td th:text="${asnmain.createTime}">
+
+                    </td>-->
+                    <td th:text="${#dates.format(asnmain.createTime,'yyyy-MM-dd')}"></td>
+                    <td th:text="${asnmain.arrivalAddress}">
+
+                    </td>
+                    <td th:text="${asnmain.supName}">
+
+                    </td>
+                    <td th:text="${asnmain.depName}">
+
+                    </td>
+                    <td class="text-center" th:text="${asnmain.staName}">
+                        <span class="label label-success"></span>
+                    </td>
+
+                    <td  align="center" class="text-center" style="width: 15%;">
+
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">点击操作
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a th:href="'selectASNbyId.html?id='+${asnmain.id}">查看</a></li>
+                                    <li><a th:href="'ASNupdate.html?id='+${asnmain.id}">修改</a></li>
+                                    <li><a th:href="'ASNdelete.html?id='+${asnmain.id}">删除</a></li>
+
+                                </ul>
+                            </div>
+
+                        </a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+    </div>
+        <div class="main-box-body clearfix">
+            <ul class="pager" style="max-width: 315px;margin: auto">
+                <li class="previous">
+                    <a th:if="${not isFirstPage}"
+                       th:href="@{${'getmaterial.html'}(pageNum=${pageNum}-1,pageSize=${pageSize})}">
+                        <span aria-hidden="true">&larr; 上一页</span>
+                    </a>
+                    <a th:if="${isFirstPage}" href="javascript:void(0);">
+                        <span aria-hidden="true">&larr; 上一页</span>
+                    </a>
+                </li>
+                <li class="previous"><a>共<span th:text="${totalPages}"></span>页</a></li>
+                <li class="previous"><a>第<span th:text="${pageNum}"></span>页</a></li>
+                <li class="next">
+                    <a th:if="${not isLastPage}"
+                       th:href="@{${'getmaterial.html'}(pageNum=${pageNum+1},pageSize=${pageSize})}">
+                        <span aria-hidden="true">下一页 &rarr;</span>
+                    </a>
+                    <a th:if="${isLastPage}" href="javascript:void(0);">
+                        <span aria-hidden="true">下一页 &rarr;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+</div>
+<script type="text/javascript" src="../js/footer.js"></script>
+</body>
+</html>
